@@ -1,137 +1,67 @@
-
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
- <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-<link rel="stylesheet" href="bootstrap.css">
-<link rel="stylesheet" href="bootstrap-theme.css">
+  <title>Ulun Priyatna Esa</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <script src="jquery.slim.min.js"></script>
+  <script src="popper.min.js"></script>
+  <script src="bootstrap.bundle.min.js"></script>
 </head>
 
-<style type="text/css">
-    /* Overwrite the default to keep the scrollbar always visible */
-    ::-webkit-scrollbar {
-      -webkit-appearance: none;
-      width: 6px;
-    }
-    ::-webkit-scrollbar-thumb {
-      background-color: rgba(0, 0, 0, .4);
-      border-radius: 3px;
-    }
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      
-      max-height: 100%;
-     
-      border-radius: 10px;
-      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.23);
-      box-sizing: border-box;
-      -webkit-flex-basis: 100%;
-      -ms-flex-preferred-size: 100%;
-      flex-basis: 100%;
-      max-width: 400px;
-      margin: 0 auto;
-      overflow: auto;
-      padding: 5px;
-      position: relative;
-      text-align: center;
-      -webkit-transition: height 0.1s ease-in-out;
-      -o-transition: height 0.1s ease-in-out;
-      transition: height 0.1s ease-in-out;
-      }
-
 <style>
-label { 
-      border: 3px solid red; /* THIS SHOULD CHANGE */
-}
-
-input:focus ~ label {
-       border-color: yellow; /* WHEN "input:blur" <label> border-color should be yellow */
-}
-
-input {
-  width: 100%;
-  border:0;
-  outline:0;
-  background: transparent;
-  font-size: 13px;
-  text-align: center;
-  
-  }
-.customers {
-  counter-reset: serial-number;  /* Set the serial number counter to 0 */
-  
-}
-
-.customers td:first-child:before {
-  counter-increment: serial-number;  /* Increment the serial number counter */
-  content: counter(serial-number);  /* Display the counter */
-  text-align: center;
-}
 	
 	
-	tbody input[type="number"] {
-  text-align: center;
-}
-	
-#customers {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
+   tr:first-child{
+  padding-top: 4px;   
+  padding-bottom: 4px;
+  text-align: center;  
+  color: white;
+  background: #146775;
   text-align: center;
   font-size: 14px;
+  border: 1px solid #000;
   
-}
-
-#customers td, #customers th {
-  border: 1px solid #ddd;
-  padding: 2px;
+  }
+	
+ </style>
+ <style>
+   tr:not(selector){
+  padding-top: 2px;
+  padding-bottom: 2px;
   text-align: center;
-  
-  
-}
-
-#customers tr:nth-child(even){background-color: #f2f2f2;}
-
-#customers tr:hover {background-color: #ddd;}
-
-#customers th {
-  padding-top: 4px;
-  padding-bottom: 4px;
+  background-color: white;
+  color: black;
   text-align: center;
-  background-color: #FF9200;
-  color: white;
-  text-align: center;
-}
-</style>
+  font-size: 13px;
+  border: 1px solid #000;
+   }
+ </style>
+ 
+ 
 <style>
-*:fullscreen, *:-webkit-full-screen, *:-moz-full-screen {
-    background-color: rgba(255,255,255,0)!important;
-    padding: 10px;
-}
 
-::backdrop
-{
-    background-color: white;
+label {
+    font-size: 12px;
+    width: 100%;
     
 }
-/* Center the loader */
+
 #loader {
-  position: absolute;
-  left: 57%;
-  top: 50%;
-  z-index: 1;
-  width: 70px;
-  height: 70px;
-  margin: -76px 0 0 -76px;
-  border: 11px solid #f3f3f3;
-  border-radius:50%;
-  border-top: 11px solid #FF0009;
+  border: 7px solid #f3f3f3;
+  border-radius: 50%;
+  border-radius: 50%;
+  border-top: 7px solid blue;
+  border-right: 7px solid green;
+  border-bottom: 7px solid red;
+  width: 55px;
+  height: 55px;
   -webkit-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite;
+  visibility:hidden;
 }
 
 @-webkit-keyframes spin {
@@ -143,737 +73,531 @@ input {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
-
-/* Add animation to "page content" */
-.animate-bottom {
-  position: relative;
-  -webkit-animation-name: animatebottom;
-  -webkit-animation-duration: 1s;
-  animation-name: animatebottom;
-  animation-duration: 1s
-}
-
-@-webkit-keyframes animatebottom {
-  from { bottom:-100px; opacity:0 } 
-  to { bottom:0px; opacity:1 }
-}
-
-@keyframes animatebottom { 
-  from{ bottom:-100px; opacity:0 } 
-  to{ bottom:0; opacity:1 }
-}
-
-#myDiv {
-  display: none;
-  text-align: center;
-}
 </style>
-
-<style>
-.center {
-  display: block;
-  text-align: center;
-  width: 100%;
-  line-height: 20px;
   
-}
-</style>
+<body onload="app.Start()">
 
 
-<style type="text/css">
-   .contoh1 { font-size:25px; }
-   .contoh2 { font-size:25px; line-height: 20px;}
-   .contoh3 { font-size:25px; line-height: 1.1em;}
-   .contoh4 { font-size:25px; line-height: 2;}
-
-</style>
-
-<style>
-
-
-</style>
+<div class="container">
+  <h2>Form BBM Operasional</h2>
+  <p><button type = "button" class="btn btn-primary" onclick="read_value()" value="Read" >Check</button> <code>2023</code> : 
+<p id="re"></p> </p>
+  
+  
+ 
+  <form role="form" id="excel" name="excel" class="was-validated">
+  
+  
+  <div class="row">
+    <div class="col">
+      <label id="tes" for="uname">1. Pilih Unit:</label>       
+	   <select class="form-control" id="id" name="id" placeholder="JenisUnit" required onchange='RNorma()'/>	   
+	   <option style="display:none">
+		
+		<option>DT16
+		<option>DT23
+		<option>DT24
+		<option>DT25
+		<option>DT26
+		<option>DT28
+		<option>DT31
+		<option>DT37
+		<option>DT38
+		<option>DT39
+		<option>DT52
+		<option>DT53
+		<option>DT54
+		<option>TR01		
+		<option>TR02
+		<option>TCPO
+		<option>DT41
+		<option>DMK1
+		
+		<option>JCB
+		<option>BW211D
+		<option>BW219D
+		<option>GD16
+		<option>GD535
+		<option>PC130
+		<option>PC200-10
+		<option>PC200-8
+		<option>PC45
+		<option>PC200-6
+		<option>GD13
+		<option>PC70                              
+		</select>
+		
+      <div class="valid-feedback">Oke.</div>
+      <div class="invalid-feedback">Mohon Isi form Ini.</div>
+    </div>
 	
-<body onload="myFunction()"
-style="margin:0;">
-
-<div id="loader"></div>
-<div style="display:none;" id="myDiv" class="animate-bottom">
-	<div id="status"></div>    
- 
- <ul class="nav nav-tabs" id="myTab">
-  <li><a data-toggle="tab" href="#sectionC">+</a></li>
-  
-  
-  
-  <li class="dropdown">
-   <a style="font-size:14px;" data-toggle="dropdown" class="dropdown-toggle" href="#">Operasional <b class="caret"></b></a>
-   <ul class="dropdown-menu">
-    <li><a data-toggle="tab" href="#sectionA">Plan BBM <b>DumpTruck</b></a></li>
-    <li><a data-toggle="tab" href="#sectionB">Plan BBM <b>Alat Berat</b></a></li>
-    <li><a data-toggle="tab" href="#sectionC">Info</a></li>
-    
-   </ul>
-  </li>
-  
- </ul>
- 
-<br>
+    <div class="col">
+      <label for="pwd">2. Tanggal:</label>
+      <input type="date" class="form-control"  id="name" name="name" required placeholder="Tanggal"/>
+      <div class="valid-feedback">Oke.</div>
+      <div class="invalid-feedback">Mohon Isi form Ini.</div>
+    </div>
 	
- <input type="date" class="center" id="date" name="trip-start" width="10' required="required" />
- 
- <div class="tab-content">
-  <div id="sectionA" class="tab-pane fade in active">
- 
-<div id="content">
-	<p class="contoh3" >Plan BBM <b>DumpTruck</b></p>
+	</div>
+	
+	
+	<div class="row">
+    <div class="col">
+      <label for="uname">3. Nama:</label>        
+		<select class="form-control" id="a3" name="a3" required placeholder="Nama"/>	   
+	   <option style="display:none">
+    <option>Agus Wiguna
+	<option>Agus Wiyono
+	<option>Ais Siratol Jumilat
+	<option>Heri Fonda
+	<option>Slamet Suwanto
+	<option>Umar Ma'Ruf
+	<option>Febri Randy
+	<option>Teguh Susilo
+	<option>Prapto Purnomo
+	<option>Imam Zainuri
+	<option>Julian
+	<option>Mistono
+	<option>Nanang Suprayogi
+	<option>Ratna Agil
+	<option>Rudi Supriyono
+	<option>Suharno
+	<option>Tri Wahyudi
+	<option>Tusianto
+	<option>Parman
+	<option>Toto D
 
-   <table class="customers"  id="customers">
-  <th>&nbsp;NO&nbsp;</th>
-  <th>&nbsp;UNIT&nbsp;</th>
-  <th>&nbsp;NOR&nbsp;</th> 
-  <th>&nbsp;KM&nbsp;</th> 
-  <th>&nbsp;&nbsp;QTY&nbsp;&nbsp;</th>     
-  <th>&nbsp;IDCEN&nbsp</th>  
-  
-  
-<tr>
-<td style="font-size:11px;" ></td>
-<td><input type="text" value=DT16 oninput="this.value = this.value.toUpperCase()" /></td>
-<td><input type="number" id="DT16n" value=3.45 onchange=DT16()></td>
-<td><input type="Number" value="" id="DT16k" onchange=DT16()></td>
-<td><span id="DT16h"></span></td>
-<td><input type="text" style="font-size:10px;"  value="5G010016" oninput="this.value = this.value.toUpperCase()" /></td>
-</tr>
+   </select>
+      <div class="valid-feedback">Oke.</div>
+      <div class="invalid-feedback">Mohon Isi form Ini.</div>
+    </div>
+	
+    <div class="col">
+      <label for="pwd">4. Aktifitas:</label>
+      <select class="form-control" id="a4" name="a4" required placeholder="Aktifitas" onkeyup="manage(this)" />
+    <option style="display:none">
+      <option>Operasional
+      <option>TBS
+      <option>WMS
+      <option>Rawat              
+      <option>Fasilitas        
+      </select>
+	  
+      <div class="valid-feedback">Oke.</div>
+      <div class="invalid-feedback">Mohon Isi form Ini.</div>
+    </div>
+	
+	</div>
+	
+	
+	<div class="row">
+    <div class="col">
+      <label for="uname">5. HM/KM Awal:</label>
+       <input type="number" maxlength="6" class="form-control" maxlength="4" id="a5" name="a5" placeholder="Awal" required onkeyup="RNorma();" />
+      <div class="valid-feedback">Oke.</div>
+      <div class="invalid-feedback">Mohon Isi form Ini.</div>
+    </div>
+	
+    <div class="col">
+      <label for="pwd">6. HM/KM Akhir:</label>
+      <input type="number" maxlength="6" class="form-control" id="a6" name="a6" placeholder="Akhir" required onkeyup="RNorma();" />
+      <div class="valid-feedback">Oke.</div>
+      <div class="invalid-feedback">Mohon Isi form Ini.</div>
+    </div>
+	
+	<div class="col">
+      <label for="pwd">7. Total HM/KM:</label>
+      <input type="number"readonly class="form-control" id="a7" name="a7" placeholder="Total" required onchange='RNorma()' />
+      <div class="valid-feedback">Oke.</div>
+      <div class="invalid-feedback">Mohon Isi form Ini.</div>
+    </div>
+	
+	</div>
+	
+	<div class="row">
+    <div class="col">
+      <label for="uname">8. Norma:</label>
+       <input type="number" readonly class="form-control" id="a8" name="a8" placeholder="Norma"  />
+      <div class="valid-feedback">Oke.</div>
+      <div class="invalid-feedback">Mohon Isi form Ini.</div>
+    </div>
+	
+    <div class="col">
+      <label for="pwd">9. Qty:</label>
+      <input type="number"  readonly class="form-control" style="background-color:yellow;color:black;" id="a9" name="a9" placeholder="Qty" />
+      <div class="valid-feedback">Oke.</div>
+      <div class="invalid-feedback">Mohon Isi form Ini.</div>
+    </div>
+	
+	<div class="col">
+      <label for="pwd">10. Center:</label>
+      <input type="text" readonly class="form-control" id="a10" name="a10" placeholder="Center"  />
+      <div class="valid-feedback">Oke.</div>
+      <div class="invalid-feedback">Mohon Isi form Ini.</div>
+    </div>	
+	</div>
+	
+	<input hidden readonly  id="a11" name="a11" />
+      <input hidden readonly  id="a12" name="a12" />
+      <input hidden readonly  id="a13" name="a13" />
+      <input hidden readonly  id="a14" name="a14" />
+      
+	
+	<br>
+	
+	<div class="col">
+      <label for="pwd">11. Keterangan:</label>
+      <input type="text" maxlength="25" class="form-control" id="a15" name="a15" placeholder="Keterangan (Jika Perlu)"  />
+      <div class="valid-feedback">Oke</div>
+      <div class="invalid-feedback">Mohon Isi form Ini.</div>
+    </div>
+	
+	<br>
+	
+    <div class="form-group form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" name="remember" required> <br><br> 
+        <div class="valid-feedback"><button type="button" class="btn btn-primary" onclick="update_value()" value="Update" >Update</button></div>
+        <div class="invalid-feedback">12. Klik Centang Untuk Melanjutkan.</div>
+      </label>
+    </div>
+	
+ <button type = "button" hidden class="btn btn-default" id = "b1" onClick="insert_value()" value = "Insert" >Input</button>
+<button type = "button" hidden class="btn btn-default" onclick="delete_value()" value="Delete" >Delete</button>
 
-<tr>
-<td style="font-size:11px;" ></td>
-<td><input type="text" value=DT23 oninput="this.value = this.value.toUpperCase()" /></td>
-<td><input type="number" id="DT23n" value=3.33 onchange=DT23()></td>
-<td><input type="Number" value="" id="DT23k" onchange=DT23()></td>
-<td><span id="DT23h"></span></td>
-<td><input type="text" style="font-size:10px;" value="5G010023" oninput="this.value = this.value.toUpperCase()" /></td>
-</tr>
-
-<tr>
-<td style="font-size:11px;" ></td>
-<td><input type="text" value=DT25 oninput="this.value = this.value.toUpperCase()" /></td>
-<td><input type="number" id="DT25n" value=3.23 onchange=DT25()></td>
-<td><input type="Number" value="" id="DT25k" onchange=DT25()></td>
-<td><span id="DT25h"></span></td>
-<td><input type="text" style="font-size:10px;" value="5G010025" oninput="this.value = this.value.toUpperCase()" /></td>
-</tr>
-
-<tr>
-<td style="font-size:11px;" ></td>
-<td><input type="text" value=DT26 oninput="this.value = this.value.toUpperCase()" /></td>
-<td><input type="number" id="DT26n" value=3.57 onchange=DT26()></td>
-<td><input type="Number" value="" id="DT26k" onchange=DT26()></td>
-<td><span id="DT26h"></span></td>
-<td><input type="text" style="font-size:10px;" value="5G010026" oninput="this.value = this.value.toUpperCase()" /></td>
-</tr>
-
-<tr>
-<td style="font-size:11px;" ></td>
-<td><input type="text" value=DT28 oninput="this.value = this.value.toUpperCase()" /></td>
-<td><input type="number" id="DT28n" value=3.13 onchange=DT28()></td>
-<td><input type="Number" value="" id="DT28k" onchange=DT28()></td>
-<td><span id="DT28h"></span></td>
-<td><input type="text" style="font-size:10px;" value="5G010028" oninput="this.value = this.value.toUpperCase()" /></td>
-</tr>
-
-<tr>
-<td style="font-size:11px;" ></td>
-<td><input type="text" value=DT29 oninput="this.value = this.value.toUpperCase()" /></td>
-<td><input type="number" id="DT29n" value=0 onchange=DT29()></td>
-<td><input type="Number" value="" id="DT29k" onchange=DT29()></td>
-<td><span id="DT29h"></span></td>
-<td><input type="text" style="font-size:10px;" value="5G010029" oninput="this.value = this.value.toUpperCase()" /></td>
-</tr>
-
-<tr>
-<td style="font-size:11px;" ></td>
-<td><input type="text" value=DT31 oninput="this.value = this.value.toUpperCase()" /></td>
-<td><input type="number" id="DT31n" value=3.23 onchange=DT31()></td>
-<td><input type="Number" value="" id="DT31k" onchange=DT31()></td>
-<td><span id="DT31h"></span></td>
-<td><input type="text" style="font-size:10px;" value="5G010033" oninput="this.value = this.value.toUpperCase()" /></td>
-</tr>
-
-<tr>
-<td style="font-size:11px;" ></td>
-<td><input type="text" value=DT37 oninput="this.value = this.value.toUpperCase()" /></td>
-<td><input type="number" id="DT37n" value=3.23 onchange=DT37()></td>
-<td><input type="Number" value="" id="DT37k" onchange=DT37()></td>
-<td><span id="DT37h"></span></td>
-<td><input type="text" style="font-size:10px;" value="5G010037" oninput="this.value = this.value.toUpperCase()" /></td>
-</tr>
-
-<tr>
-<td style="font-size:11px;" ></td>
-<td><input type="text" value=DT38 oninput="this.value = this.value.toUpperCase()" /></td>
-<td><input type="number" id="DT38n" value=3.13 onchange=DT38()></td>
-<td><input type="Number" value="" id="DT38k" onchange=DT38()></td>
-<td><span id="DT38h"></span></td>
-<td><input type="text" style="font-size:10px;" value="5G010047" oninput="this.value = this.value.toUpperCase()" /></td>
-</tr>
-
-<tr>
-<td style="font-size:11px;" ></td>
-<td><input type="text" value=DT39 oninput="this.value = this.value.toUpperCase()" /></td>
-<td><input type="number" id="DT39n" value=3.03 onchange=DT39()></td>
-<td><input type="Number" value="" id="DT39k" onchange=DT39()></td>
-<td><span id="DT39h"></span></td>
-<td><input type="text" style="font-size:10px;" value="5G010048" oninput="this.value = this.value.toUpperCase()" /></td>
-</tr>
-
-<tr>
-<td style="font-size:11px;" ></td>
-<td><input type="text" value=DT52 oninput="this.value = this.value.toUpperCase()" /></td>
-<td><input type="number" id="DT52n" value=3.5 onchange=DT52()></td>
-<td><input type="Number" value="" id="DT52k" onchange=DT52()></td>
-<td><span id="DT52h"></span></td>
-<td><input type="text" style="font-size:10px;" value="5G010061" oninput="this.value = this.value.toUpperCase()" /></td>
-</tr>
-
-<tr>
-<td style="font-size:11px;" ></td>
-<td><input type="text" value=DT53 oninput="this.value = this.value.toUpperCase()" /></td>
-<td><input type="number" id="DT53n" value=3.5 onchange=DT53()></td>
-<td><input type="Number" value="" id="DT53k" onchange=DT53()></td>
-<td><span id="DT53h"></span></td>
-<td><input type="text" style="font-size:10px;" value="5G010062" oninput="this.value = this.value.toUpperCase()" /></td>
-</tr>
-
-<tr>
-<td style="font-size:11px;" ></td>
-<td><input type="text" value=DT54 oninput="this.value = this.value.toUpperCase()" /></td>
-<td><input type="number" id="DT54n" value=3.57 onchange=DT54()></td>
-<td><input type="Number" value="" id="DT54k" onchange=DT54()></td>
-<td><span id="DT54h"></span></td>
-<td><input type="text" style="font-size:10px;" value="5G010063" oninput="this.value = this.value.toUpperCase()" /></td>
-</tr>
-
-<tr>
-<td style="font-size:11px;" ></td>
-<td><input type="text" value=TR01 oninput="this.value = this.value.toUpperCase()" /></td>
-<td><input type="number" id="TR01n" value=1.2 onchange=TR01()></td>
-<td><input type="Number" value="" id="TR01k" onchange=TR01()></td>
-<td><span id="TR01h"></span></td>
-<td><input type="text" style="font-size:10px;" value="4G000001" oninput="this.value = this.value.toUpperCase()" /></td>
-</tr>
-
-<tr>
-<td style="font-size:11px;" ></td>
-<td><input type="text" value=TCPO oninput="this.value = this.value.toUpperCase()" /></td>
-<td><input type="number" id="TCPOn" value=1.4 onchange=TCPO()></td>
-<td><input type="Number" value="" id="TCPOk" onchange=TCPO()></td>
-<td><span id="TCPOh"></span></td>
-<td><input type="text" style="font-size:10px;" value="5G020002" oninput="this.value = this.value.toUpperCase()" /></td>
-</tr>
-
-<tr>
-<td style="font-size:11px;" ></td>
-<td><input type="text" value=TR02 oninput="this.value = this.value.toUpperCase()" /></td>
-<td><input type="number" id="TR02n" value=1.4 onchange=TR02()></td>
-<td><input type="Number" value="" id="TR02k" onchange=TR02()></td>
-<td><span id="TR02h"></span></td>
-<td><input type="text" style="font-size:10px;" value="5G010065" oninput="this.value = this.value.toUpperCase()" /></td>
-</tr>
-
-<tr>
-<td style="font-size:11px;" ></td>
-<td><input type="text" value=DT41 oninput="this.value = this.value.toUpperCase()" /></td>
-<td><input type="number" id="DT41n" value=3.2 onchange=DT41()></td>
-<td><input type="Number" value="" id="DT41k" onchange=DT41()></td>
-<td><span id="DT41h"></span></td>
-<td><input type="text" style="font-size:10px;" value="5G0100--" oninput="this.value = this.value.toUpperCase()" /></td>
-</tr>
-
-<tr>
-<td style="font-size:11px;" ></td>
-<td><input type="text" value=DMK1 oninput="this.value = this.value.toUpperCase()" /></td>
-<td><input type="number" id="DMK1n" value=2.63 onchange=DMK1()></td>
-<td><input type="Number" value="" id="DMK1k" onchange=DMK1()></td>
-<td><span id="DMK1h"></span></td>
-<td><input type="text" style="font-size:10px;" value="5G0100--" oninput="this.value = this.value.toUpperCase()" /></td>
-</tr>
+  </form>
+</div>
 
 
-
-
-
- <br>
-</table>
-     </div>     
-       </div>
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-    <div id="sectionB" class="tab-pane fade">
-   <p class="contoh3" >Plan BBM <b>Alat Berat</b>
-  
-<div id="content">
-   <table class="customers"  id="customers">
-   	
-  <th>&nbsp;NO&nbsp;</th>
-  <th>&nbsp;&nbsp;&nbsp;UNIT&nbsp;&nbsp;&nbsp;</th>
-  <th>&nbsp;NOR&nbsp;</th> 
-  <th>&nbsp;HM&nbsp;</th> 
-  <th>&nbsp;&nbsp;QTY&nbsp;&nbsp;</th>     
-  <th>&nbsp;IDCEN&nbsp</th>  
-  
-  
-<tr>
-<td style="font-size:11px;" ></td>
-<td><input type="text" value=JCB oninput="this.value = this.value.toUpperCase()" /></td>
-<td><input type="number" id="JCBn" value=8.1 onchange=JCB()></td>
-<td><input type="Number" value="" id="JCBk" onchange=JCB()></td>
-<td><span id="JCBh"></span></td>
-<td><input type="text" style="font-size:10px;" value="4E000004" oninput="this.value = this.value.toUpperCase()" /></td>
-</tr>
-
-<tr>
-<td style="font-size:11px;" ></td>
-<td><input type="text" value=BW211D oninput="this.value = this.value.toUpperCase()" /></td>
-<td><input type="number" id="BW211Dn" value=11 onchange=BW211D()></td>
-<td><input type="Number" value="" id="BW211Dk" onchange=BW211D()></td>
-<td><span id="BW211Dh"></span></td>
-<td><input type="text" style="font-size:10px;" value="4C010008" oninput="this.value = this.value.toUpperCase()" /></td>
-</tr>
-
-<tr>
-<td style="font-size:11px;" ></td>
-<td><input type="text" value=BW219D oninput="this.value = this.value.toUpperCase()" /></td>
-<td><input type="number" id="BW219Dn" value=14 onchange=BW219D()></td>
-<td><input type="Number" value="" id="BW219Dk" onchange=BW219D()></td>
-<td><span id="BW219Dh"></span></td>
-<td><input type="text" style="font-size:10px;" value="4C010007" oninput="this.value = this.value.toUpperCase()" /></td>
-</tr>
-
-<tr>
-<td style="font-size:11px;" ></td>
-<td><input type="text" value=GD16 oninput="this.value = this.value.toUpperCase()" /></td>
-<td><input type="number" id="GD16n" value=11.3 onchange=GD16()></td>
-<td><input type="Number" value="" id="GD16k" onchange=GD16()></td>
-<td><span id="GD16h"></span></td>
-<td><input type="text" style="font-size:10px;" value="4B010006" oninput="this.value = this.value.toUpperCase()" /></td>
-</tr>
-
-<tr>
-<td style="font-size:11px;" ></td>
-<td><input type="text" value=GD535 oninput="this.value = this.value.toUpperCase()" /></td>
-<td><input type="number" id="GD535n" value=12 onchange=GD535()></td>
-<td><input type="Number" value="" id="GD535k" onchange=GD535()></td>
-<td><span id="GD535h"></span></td>
-<td><input type="text" style="font-size:10px;" value="4B010010" oninput="this.value = this.value.toUpperCase()" /></td>
-</tr>
-
-<tr>
-<td style="font-size:11px;" ></td>
-<td><input type="text" value=PC130 oninput="this.value = this.value.toUpperCase()" /></td>
-<td><input type="number" id="PC130n" value=9.9 onchange=PC130()></td>
-<td><input type="Number" value="" id="PC130k" onchange=PC130()></td>
-<td><span id="PC130h"></span></td>
-<td><input type="text" style="font-size:10px;" value="SA1EX003" oninput="this.value = this.value.toUpperCase()" /></td>
-</tr>
-
-<tr>
-<td style="font-size:11px;" ></td>
-<td><input type="text" value=PC200-10 oninput="this.value = this.value.toUpperCase()" /></td>
-<td><input type="number" id="PC20010n" value=13.5 onchange=PC20010()></td>
-<td><input type="Number" value="" id="PC20010k" onchange=PC20010()></td>
-<td><span id="PC200-10h"></span></td>
-<td><input type="text" style="font-size:10px;" value="4D010006" oninput="this.value = this.value.toUpperCase()" /></td>
-</tr>
-
-<tr>
-<td style="font-size:11px;" ></td>
-<td><input type="text" value=PC200-8 oninput="this.value = this.value.toUpperCase()" /></td>
-<td><input type="number" id="PC2008n" value=16.1 onchange=PC2008()></td>
-<td><input type="Number" value="" id="PC2008k" onchange=PC2008()></td>
-<td><span id="PC200-8h"></span></td>
-<td><input type="text" style="font-size:10px;" value="4D010004" oninput="this.value = this.value.toUpperCase()" /></td>
-</tr>
-
-<tr>
-<td style="font-size:11px;" ></td>
-<td><input type="text" value=PC45 oninput="this.value = this.value.toUpperCase()" /></td>
-<td><input type="number" id="PC45n" value=6 onchange=PC45()></td>
-<td><input type="Number" value="" id="PC45k" onchange=PC45()></td>
-<td><span id="PC45h"></span></td>
-<td><input type="text" style="font-size:10px;" value="SA1EX002" oninput="this.value = this.value.toUpperCase()" /></td>
-</tr>
-
-<tr>
-<td style="font-size:11px;" ></td>
-<td><input type="text" value=PC200-6 oninput="this.value = this.value.toUpperCase()" /></td>
-<td><input type="number" id="PC2006n" value=16.1 onchange=PC2006()></td>
-<td><input type="Number" value="" id="PC2006k" onchange=PC2006()></td>
-<td><span id="PC200-6h"></span></td>
-<td><input type="text" style="font-size:10px;" value="5G0100--" oninput="this.value = this.value.toUpperCase()" /></td>
-</tr>
-
-<tr>
-<td style="font-size:11px;" ></td>
-<td><input type="text" value=GD13 oninput="this.value = this.value.toUpperCase()" /></td>
-<td><input type="number" id="GD13n" value=10 onchange=GD13()></td>
-<td><input type="Number" value="" id="GD13k" onchange=GD13()></td>
-<td><span id="GD13h"></span></td>
-<td><input type="text" style="font-size:10px;" value="4B010009" oninput="this.value = this.value.toUpperCase()" /></td>
-</tr>
-
-<tr>
-<td style="font-size:11px;" ></td>
-<td><input type="text" value=PC70 oninput="this.value = this.value.toUpperCase()" /></td>
-<td><input type="number" id="PC70n" value=7.5 onchange=PC70()></td>
-<td><input type="Number" value="" id="PC70k" onchange=PC70()></td>
-<td><span id="PC70h"></span></td>
-<td><input type="text" style="font-size:10px;" value="4D010007" oninput="this.value = this.value.toUpperCase()" /></td>
-</tr>
-
-
- <br>
-</table>
-     </div>     
-       </div>
-
-
- <div id="sectionC" class="tab-pane fade">
-      <div id="content">   
+	
    
-    
-  </div>
-  </div>
-   
+<table cellspacing="50" class="sticky-column"  id="showData">
+
+</table>
+
+
+	<div align="center">
+	<div id="loader"></div>
+	
+	</div>
+	
+	
   
   
-
- <script src="jquery.js"></script>
- <script src="bootstrap.js"></script>
-
- <script type="text/javascript">
-  $(document).ready(function()
-  {
-   $("#myTab li:eq(1) a").tab('show');
-  });
- </script>
-
-<script >
-const dateInput = document.getElementById('date');
-
-// ✅ Using the visitor's timezone
-dateInput.value = formatDate();
-
-console.log(formatDate());
-
-function padTo2Digits(num) {
-  return num.toString().padStart(2, '0');
-}
-
-function formatDate(date = new Date()) {
-  return [
-    date.getFullYear(),
-    padTo2Digits(date.getMonth() + 1),
-    padTo2Digits(date.getDate()+ 1),
-  ].join('-');
-}
-
-</script>
-
-<script>
-var myVar;
-
-function myFunction() {
-  myVar = setTimeout(showPage, 3000);
- 
-}
-
-function showPage() {
-  document.getElementById("loader").style.display = "none";
-  document.getElementById("myDiv").style.display = "block";
   
-}
-</script>
-
-
-
-<script>
-function DT14() {
-var a = document.getElementById("DT14n").value;
-var b = document.getElementById("DT14k").value;
-if(a && b)
-document.getElementById("DT14h").innerHTML= Math.round(b/a);}
-</script>
-
-<script>
-function DT16() {
-var a = document.getElementById("DT16n").value;
-var b = document.getElementById("DT16k").value;
-if(a && b)
-document.getElementById("DT16h").innerHTML= Math.round(b/a);}
-</script>
-
-<script>
-function DT23() {
-var a = document.getElementById("DT23n").value;
-var b = document.getElementById("DT23k").value;
-if(a && b)
-document.getElementById("DT23h").innerHTML= Math.round(b/a);}
-</script>
-
-<script>
-function DT24() {
-var a = document.getElementById("DT24n").value;
-var b = document.getElementById("DT24k").value;
-if(a && b)
-document.getElementById("DT24h").innerHTML= Math.round(b/a);}
-</script>
-
-<script>
-function DT25() {
-var a = document.getElementById("DT25n").value;
-var b = document.getElementById("DT25k").value;
-if(a && b)
-document.getElementById("DT25h").innerHTML= Math.round(b/a);}
-</script>
-
-<script>
-function DT26() {
-var a = document.getElementById("DT26n").value;
-var b = document.getElementById("DT26k").value;
-if(a && b)
-document.getElementById("DT26h").innerHTML= Math.round(b/a);}
-</script>
-
-<script>
-function DT28() {
-var a = document.getElementById("DT28n").value;
-var b = document.getElementById("DT28k").value;
-if(a && b)
-document.getElementById("DT28h").innerHTML= Math.round(b/a);}
-</script>
-
-<script>
-function DT29() {
-var a = document.getElementById("DT29n").value;
-var b = document.getElementById("DT29k").value;
-if(a && b)
-document.getElementById("DT29h").innerHTML= Math.round(b/a);}
-</script>
-
-<script>
-function DT31() {
-var a = document.getElementById("DT31n").value;
-var b = document.getElementById("DT31k").value;
-if(a && b)
-document.getElementById("DT31h").innerHTML= Math.round(b/a);}
-</script>
-
-<script>
-function DT37() {
-var a = document.getElementById("DT37n").value;
-var b = document.getElementById("DT37k").value;
-if(a && b)
-document.getElementById("DT37h").innerHTML= Math.round(b/a);}
-</script>
-
-<script>
-function DT38() {
-var a = document.getElementById("DT38n").value;
-var b = document.getElementById("DT38k").value;
-if(a && b)
-document.getElementById("DT38h").innerHTML= Math.round(b/a);}
-</script>
-
-<script>
-function DT39() {
-var a = document.getElementById("DT39n").value;
-var b = document.getElementById("DT39k").value;
-if(a && b)
-document.getElementById("DT39h").innerHTML= Math.round(b/a);}
-</script>
-
-<script>
-function DT52() {
-var a = document.getElementById("DT52n").value;
-var b = document.getElementById("DT52k").value;
-if(a && b)
-document.getElementById("DT52h").innerHTML= Math.round(b/a);}
-</script>
-
-<script>
-function DT53() {
-var a = document.getElementById("DT53n").value;
-var b = document.getElementById("DT53k").value;
-if(a && b)
-document.getElementById("DT53h").innerHTML= Math.round(b/a);}
-</script>
-
-<script>
-function DT54() {
-var a = document.getElementById("DT54n").value;
-var b = document.getElementById("DT54k").value;
-if(a && b)
-document.getElementById("DT54h").innerHTML= Math.round(b/a);}
-</script>
-
-<script>
-function TR01() {
-var a = document.getElementById("TR01n").value;
-var b = document.getElementById("TR01k").value;
-if(a && b)
-document.getElementById("TR01h").innerHTML= Math.round(b/a);}
-</script>
-
-<script>
-function TCPO() {
-var a = document.getElementById("TCPOn").value;
-var b = document.getElementById("TCPOk").value;
-if(a && b)
-document.getElementById("TCPOh").innerHTML= Math.round(b/a);}
-</script>
-
-<script>
-function TR02() {
-var a = document.getElementById("TR02n").value;
-var b = document.getElementById("TR02k").value;
-if(a && b)
-document.getElementById("TR02h").innerHTML= Math.round(b/a);}
-</script>
-
-<script>
-function DT41() {
-var a = document.getElementById("DT41n").value;
-var b = document.getElementById("DT41k").value;
-if(a && b)
-document.getElementById("DT41h").innerHTML= Math.round(b/a);}
-</script>
-
-<script>
-function DMK1() {
-var a = document.getElementById("DMK1n").value;
-var b = document.getElementById("DMK1k").value;
-if(a && b)
-document.getElementById("DMK1h").innerHTML= Math.round(b/a);}
-</script>
-
-<script>
-function JCB() {
-var a = document.getElementById("JCBn").value;
-var b = document.getElementById("JCBk").value;
-if(a && b)
-document.getElementById("JCBh").innerHTML= Math.round(b*a);}
-</script>
-
-<script>
-function BW211D() {
-var a = document.getElementById("BW211Dn").value;
-var b = document.getElementById("BW211Dk").value;
-if(a && b)
-document.getElementById("BW211Dh").innerHTML= Math.round(b*a);}
-</script>
-
-<script>
-function BW219D() {
-var a = document.getElementById("BW219Dn").value;
-var b = document.getElementById("BW219Dk").value;
-if(a && b)
-document.getElementById("BW219Dh").innerHTML= Math.round(b*a);}
-</script>
-
-<script>
-function GD16() {
-var a = document.getElementById("GD16n").value;
-var b = document.getElementById("GD16k").value;
-if(a && b)
-document.getElementById("GD16h").innerHTML= Math.round(b*a);}
-</script>
-
-<script>
-function GD535() {
-var a = document.getElementById("GD535n").value;
-var b = document.getElementById("GD535k").value;
-if(a && b)
-document.getElementById("GD535h").innerHTML= Math.round(b*a);}
-</script>
-
-<script>
-function PC130() {
-var a = document.getElementById("PC130n").value;
-var b = document.getElementById("PC130k").value;
-if(a && b)
-document.getElementById("PC130h").innerHTML= Math.round(b*a);}
-</script>
-
-<script>
-function PC20010() {
-var a = document.getElementById("PC20010n").value;
-var b = document.getElementById("PC20010k").value;
-if(a && b)
-document.getElementById("PC200-10h").innerHTML= Math.round(b*a);}
-</script>
-
-<script>
-function PC2008() {
-var a = document.getElementById("PC2008n").value;
-var b = document.getElementById("PC2008k").value;
-if(a && b)
-document.getElementById("PC200-8h").innerHTML= Math.round(b*a);}
-</script>
-
-<script>
-function PC45() {
-var a = document.getElementById("PC45n").value;
-var b = document.getElementById("PC45k").value;
-if(a && b)
-document.getElementById("PC45h").innerHTML= Math.round(b*a);}
-</script>
-
-<script>
-function PC2006() {
-var a = document.getElementById("PC2006n").value;
-var b = document.getElementById("PC2006k").value;
-if(a && b)
-document.getElementById("PC200-6h").innerHTML= Math.round(b*a);}
-</script>
-
-<script>
-function GD13() {
-var a = document.getElementById("GD13n").value;
-var b = document.getElementById("GD13k").value;
-if(a && b)
-document.getElementById("GD13h").innerHTML= Math.round(b*a);}
-</script>
-
-<script>
-function PC70() {
-var a = document.getElementById("PC70n").value;
-var b = document.getElementById("PC70k").value;
-if(a && b)
-document.getElementById("PC70h").innerHTML= Math.round(b*a);}
-</script>
-
-
-
-
 </body>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script>
+  
+  var script_url = "https://script.google.com/macros/s/AKfycbzhCTHB_-lWqk3-ENV_ySgv2nwrvQF7qvUfNP-F-wPozmWylKEj/exec";
+  
+  
+  // Make an AJAX call to Google Script
+  function insert_value() {
+    
+	$("#re").css("visibility","hidden");
+	 document.getElementById("loader").style.visibility = "visible";
+	$('#mySpinner').addClass('spinner');
+
+	var id1= $("#id").val();
+	var name= $("#name").val();
+	var a3= $("#a3").val();
+	var a4= $("#a4").val();
+	var a5= $("#a5").val();
+	var a6= $("#a6").val();
+	var a7= $("#a7").val();
+	var a8= $("#a8").val();
+	var a9= $("#a9").val();
+	var a10= $("#a10").val();
+	var a11= $("#a11").val();
+	var a12= $("#a12").val();
+	var a13= $("#a13").val();
+	var a14= $("#a14").val();
+	var a15= $("#a15").val();
+		
+    var url = script_url+"?callback=ctrlq&name="+name+"&id="+id1+"&a3="+a3+"&a4="+a4+"&a5="+a5+"&a6="+a6+"&a7="+a7+"&a8="+a8+"&a9="+a9+"&a10="+a10+"&a11="+a11+"&a12="+a12+"&a13="+a13+"&a14="+a14+"&a15="+a15+"&action=insert";
+  
+
+    var request = jQuery.ajax({
+      crossDomain: true,
+      url: url ,
+      method: "GET",
+      dataType: "jsonp"
+    });
+
+  }
+  
+
+  
+  function update_value(){
+	$("#re").css("visibility","hidden");
+	 document.getElementById("loader").style.visibility = "visible";
+	$('#mySpinner').addClass('spinner');
+
+	
+	
+	var id1= $("#id").val();
+	var name= $("#name").val();
+	var a3= $("#a3").val();
+	var a4= $("#a4").val();
+	var a5= $("#a5").val();
+	var a6= $("#a6").val();
+	var a7= $("#a7").val();
+	var a8= $("#a8").val();
+	var a9= $("#a9").val();
+	var a10= $("#a10").val();
+	var a11= $("#a11").val();
+	var a12= $("#a12").val();
+	var a13= $("#a13").val();
+	var a14= $("#a14").val();
+	var a15= $("#a15").val();
+	
+	var url = script_url+"?callback=ctrlq&id="+id1+"&name="+name+"&a3="+a3+"&a4="+a4+"&a5="+a5+"&a6="+a6+"&a7="+a7+"&a8="+a8+"&a9="+a9+"&a10="+a10+"&a11="+a11+"&a12="+a12+"&a13="+a13+"&a14="+a14+"&a15="+a15+"&action=update";	
+    
+  
+
+    var request = jQuery.ajax({
+      crossDomain: true,
+      url: url ,
+      method: "GET",
+      dataType: "jsonp"
+    });
+
+	
+  }
+
+ 
+  
+  function delete_value(){
+	$("#re").css("visibility","hidden");
+     document.getElementById("loader").style.visibility = "visible";
+	$('#mySpinner').addClass('spinner');
+	
+	var id1= $("#id").val();
+	var name= $("#name").val();
+	var a3= $("#a3").val();
+	var a4= $("#a4").val();
+	var a5= $("#a5").val();
+	var a6= $("#a6").val();
+	var a7= $("#a7").val();
+	var a8= $("#a8").val();
+	var a9= $("#a9").val();
+	var a10= $("#a10").val();
+	var a11= $("#a11").val();
+	var a12= $("#a12").val();
+	var a13= $("#a13").val();
+	var a14= $("#a14").val();
+	var a15= $("#a15").val();
+		
+    
+  var url = script_url+"?callback=ctrlq&name="+name+"&id="+id1+"&a3="+a3+"&a4="+a4+"&a5="+a5+"&a6="+a6+"&a7="+a7+"&a8="+a8+"&a9="+a9+"&a10="+a10+"&a11="+a11+"&a12="+a12+"&a13="+a13+"&a14="+a14+"&a15="+a15+"&action=delete";	
+
+    var request = jQuery.ajax({
+      crossDomain: true,
+      url: url ,
+      method: "GET",
+      dataType: "jsonp"
+    });
+
+  }
+
+
+  
+  
+  // print the returned data
+  function ctrlq(e) {
+  
+	
+	$("#re").html(e.result);
+	$("#re").css("visibility","visible");
+	read_value();
+
+  }
+  
+  function read_value() {
+  
+  var x = document.getElementById("excel");
+  if (x.style.display === "none") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "none";
+  }
+
+$("#re").css("visibility","hidden");
+   
+   document.getElementById("loader").style.visibility = "visible";
+ var url = script_url+"?action=read";
+
+$.getJSON(url, function (json) {
+
+    // Set the variables from the results array
+   
+   
+  
+
+        // CREATE DYNAMIC TABLE.
+        var table = document.createElement("table");
+
+  
+
+        var header = table.createTHead();
+  var row = header.insertRow(0);     
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  var cell3 = row.insertCell(2);
+  var cell4 = row.insertCell(3);
+  var cell5 = row.insertCell(4);
+  var cell6 = row.insertCell(5);
+  var cell7 = row.insertCell(6);
+  var cell8 = row.insertCell(7);
+  var cell9 = row.insertCell(8);
+  var cell10 = row.insertCell(9);
+  var cell11 = row.insertCell(10);
+  var cell12 = row.insertCell(11);
+  var cell13 = row.insertCell(12);
+  var cell14 = row.insertCell(13);
+  var cell15 = row.insertCell(14);
+  var cell16 = row.insertCell(15);
+  
+  
+   
+  cell1.innerHTML = "<b>&nbsp;&nbsp;&nbsp;UNIT&nbsp;&nbsp;&nbsp;</b>";
+  cell2.innerHTML = "<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tanggal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>";
+  cell3.innerHTML = "<b>&nbsp;&nbsp;&nbsp;NamaKaryawan&nbsp;&nbsp;&nbsp;</b>";
+  cell4.innerHTML = "<b>&nbsp;&nbsp;&nbsp;Aktifitas&nbsp;&nbsp;&nbsp;</b>";
+  cell5.innerHTML = "<b>&nbsp;&nbsp;&nbsp;Awal&nbsp;&nbsp;&nbsp;</b>";
+  cell6.innerHTML = "<b>&nbsp;&nbsp;&nbsp;Akhir&nbsp;&nbsp;&nbsp;</b>";
+  cell7.innerHTML = "<b>&nbsp;&nbsp;&nbsp;Total&nbsp;&nbsp;&nbsp;</b>";
+  cell8.innerHTML = "<b>&nbsp;&nbsp;&nbsp;Norma&nbsp;&nbsp;&nbsp;</b>";
+  cell9.innerHTML = "<b>&nbsp;&nbsp;&nbsp;Qty&nbsp;&nbsp;&nbsp;</b>";
+  cell10.innerHTML = "<b>&nbsp;&nbsp;&nbsp;CostCenter&nbsp;&nbsp;&nbsp;</b>";
+  cell11.innerHTML = "<b>&nbsp;&nbsp;&nbsp;Keterangan&nbsp;&nbsp;&nbsp;</b>";
+  
+
+  
+  
+        
+        // ADD JSON DATA TO THE TABLE AS ROWS  (Sama dengan Excel).
+        for (var i = 0; i < json.records.length; i++) {
+  
+            tr = table.insertRow(-1);
+    var tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = json.records[i].ID;
+    tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].Tanggal;
+    tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].NamaKaryawan;
+    tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].Aktifitas;
+    tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].Awal;
+    tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].Akhir;
+    tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].Total;
+    tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].Norma;
+    tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].Qty;
+    tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].CostCenter;
+	tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].Keterangan;    
+    
+    
+    
+    
+            }
+      
+
+        // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
+        var divContainer = document.getElementById("showData");
+        divContainer.innerHTML = "";
+        divContainer.appendChild(table);
+  document.getElementById("loader").style.visibility = "hidden";
+  $("#re").css("visibility","visible");
+    });
+ }
+  
+ 
+  </script>
+
+ <script>
+function RNorma(){ 
+
+var b = document.forms['excel']['id'].value;
+var c = document.forms['excel']['id'].value;
+var d = document.getElementById('a5').value;
+var e = document.getElementById('a6').value;
+var f = document.getElementById('a8').value;
+
+      var result = parseFloat(e) - parseFloat(d);
+      var bbmDT = Math.round(parseFloat(result) / parseFloat(f));
+	  var bbmAB = Math.round(parseFloat(result) * parseFloat(f));
+      if (!isNaN(result)) {
+         document.getElementById('a7').value = result;
+		 
+         
+		 
+}
+
+if(b=="DT14") {document.forms['excel']['a8'].value= 3.45;document.forms['excel']['a10'].value= "5G0100--";document.getElementById('a9').value = bbmDT} 
+if(b=="DT16") {document.forms['excel']['a8'].value= 3.45;document.forms['excel']['a10'].value= "5G010016";document.getElementById('a9').value = bbmDT} 
+if(b=="DT23") {document.forms['excel']['a8'].value= 3.03;document.forms['excel']['a10'].value= "5G010023";document.getElementById('a9').value = bbmDT} 
+if(b=="DT24") {document.forms['excel']['a8'].value= 3.45;document.forms['excel']['a10'].value= "5G010024";document.getElementById('a9').value = bbmDT} 
+if(b=="DT25") {document.forms['excel']['a8'].value= 3.33;document.forms['excel']['a10'].value= "5G010025";document.getElementById('a9').value = bbmDT} 
+if(b=="DT26") {document.forms['excel']['a8'].value= 3.57;document.forms['excel']['a10'].value= "5G010026";document.getElementById('a9').value = bbmDT} 
+if(b=="DT28") {document.forms['excel']['a8'].value= 3.33;document.forms['excel']['a10'].value= "5G010028";document.getElementById('a9').value = bbmDT} 
+if(b=="DT31") {document.forms['excel']['a8'].value= 3.70;document.forms['excel']['a10'].value= "5G010033";document.getElementById('a9').value = bbmDT} 
+if(b=="DT37") {document.forms['excel']['a8'].value= 3.33;document.forms['excel']['a10'].value= "5G010037";document.getElementById('a9').value = bbmDT} 
+if(b=="DT38") {document.forms['excel']['a8'].value= 3.13;document.forms['excel']['a10'].value= "5G010047";document.getElementById('a9').value = bbmDT} 
+if(b=="DT39") {document.forms['excel']['a8'].value= 3.33;document.forms['excel']['a10'].value= "5G010048";document.getElementById('a9').value = bbmDT} 
+if(b=="DT52") {document.forms['excel']['a8'].value= 3.57;document.forms['excel']['a10'].value= "5G010061";document.getElementById('a9').value = bbmDT} 
+if(b=="DT53") {document.forms['excel']['a8'].value= 3.45;document.forms['excel']['a10'].value= "5G010062";document.getElementById('a9').value = bbmDT} 
+if(b=="DT54") {document.forms['excel']['a8'].value= 3.23;document.forms['excel']['a10'].value= "5G010063";document.getElementById('a9').value = bbmDT} 
+if(b=="TR01") {document.forms['excel']['a8'].value= 1.20;document.forms['excel']['a10'].value= "4G000001";document.getElementById('a9').value = bbmDT} 
+if(b=="TCPO") {document.forms['excel']['a8'].value= 1.40;document.forms['excel']['a10'].value= "5G020002";document.getElementById('a9').value = bbmDT} 
+if(b=="TR02") {document.forms['excel']['a8'].value= 1.40;document.forms['excel']['a10'].value= "5G010065";document.getElementById('a9').value = bbmDT} 
+if(b=="DT41") {document.forms['excel']['a8'].value= 3.20;document.forms['excel']['a10'].value= "5G010049";document.getElementById('a9').value = bbmDT} 
+if(b=="DMK1") {document.forms['excel']['a8'].value= 2.63;document.forms['excel']['a10'].value= "5M000001";document.getElementById('a9').value = bbmDT} 
+if(b=="JCB") {document.forms['excel']['a8'].value= 8.10;document.forms['excel']['a10'].value= "4E000004";document.getElementById('a9').value = bbmAB} 
+if(b=="BW211D") {document.forms['excel']['a8'].value= 11.00;document.forms['excel']['a10'].value= "4C010008";document.getElementById('a9').value = bbmAB} 
+if(b=="BW219D") {document.forms['excel']['a8'].value= 14.00;document.forms['excel']['a10'].value= "4C010007";document.getElementById('a9').value = bbmAB} 
+if(b=="GD16") {document.forms['excel']['a8'].value= 11.30;document.forms['excel']['a10'].value= "4B010006";document.getElementById('a9').value = bbmAB} 
+if(b=="GD535") {document.forms['excel']['a8'].value= 12.00;document.forms['excel']['a10'].value= "4B010010";document.getElementById('a9').value = bbmAB} 
+if(b=="PC130") {document.forms['excel']['a8'].value= 9.90;document.forms['excel']['a10'].value= "4D010005";document.getElementById('a9').value = bbmAB} 
+if(b=="PC200-10") {document.forms['excel']['a8'].value= 13.50;document.forms['excel']['a10'].value= "4D010006";document.getElementById('a9').value = bbmAB} 
+if(b=="PC200-8") {document.forms['excel']['a8'].value= 16.1;document.forms['excel']['a10'].value= "4D010004";document.getElementById('a9').value = bbmAB} 
+if(b=="PC45") {document.forms['excel']['a8'].value= 6;document.forms['excel']['a10'].value= "4D010003";document.getElementById('a9').value = bbmAB} 
+if(b=="PC200-6") {document.forms['excel']['a8'].value= 16.1;document.forms['excel']['a10'].value= "4D010001";document.getElementById('a9').value = bbmAB} 
+if(b=="GD13") {document.forms['excel']['a8'].value= 10;document.forms['excel']['a10'].value= "4B010009";document.getElementById('a9').value = bbmAB} 
+if(b=="PC70") {document.forms['excel']['a8'].value= 7.5;document.forms['excel']['a10'].value= "4D010007";document.getElementById('a9').value = bbmAB} 
+
+  
+  
+  else {
+    document.getElementById("tes").innerHTML="<font color='black'><b>1. Pilih Unit</b></font>";
+  }
+ } 
+ 
+
+
+
+
+</script>
+
+<script>
+function sembunyi() {
+  var x = document.getElementById("excel");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+
+
+ 
 </html>
