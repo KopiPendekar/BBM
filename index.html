@@ -26,6 +26,21 @@
   border: 1px solid #000;
   
   }
+  
+   tr:nth-child(20) {   /* 3rd row */
+  padding-top: 4px;   
+  padding-bottom: 4px;
+  text-align: center;  
+  color: white;
+  background: #146775;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid #000;
+ }
+
+
+    
 	
  </style>
  
@@ -34,7 +49,7 @@
   padding-top: 2px;
   padding-bottom: 2px;
   text-align: center;
-  background-color: white;
+  background-color: #E6E6E6;
   color: black;
   text-align: center;
   font-size: 13px;
@@ -86,9 +101,10 @@ label {
 </style>
   
 <body>
-      
+      <br> 
    
 <div class="container">
+	
 	<button type = "button" class="btn btn-primary btn-sm" onclick="read_value()" value="Read">Check</button>
 &nbsp;
 <code id="re" ></code> 
@@ -474,7 +490,8 @@ $.getJSON(url, function (json) {
   cell2.innerHTML = "<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tanggal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>";
   cell3.innerHTML = "<b>&nbsp;&nbsp;&nbsp;Km/Hm&nbsp;&nbsp;&nbsp;</b>";
   cell4.innerHTML = "<b>&nbsp;&nbsp;&nbsp;Norma&nbsp;&nbsp;&nbsp;</b>";
-  cell5.innerHTML = "<b>&nbsp;&nbsp;Qty&nbsp;&nbsp;</b>";
+  cell5.innerHTML = "<b>&nbsp;&nbsp;&nbsp;Qty&nbsp;&nbsp;&nbsp;</b>";
+  
   
 
   
@@ -493,9 +510,7 @@ $.getJSON(url, function (json) {
     tabCell = tr.insertCell(-1);
     tabCell.innerHTML = json.records[i].Norma;
     tabCell = tr.insertCell(-1);
-    tabCell.innerHTML = json.records[i].Qty;  
-    
-    
+    tabCell.innerHTML = json.records[i].Qty;     
     
             }
       
