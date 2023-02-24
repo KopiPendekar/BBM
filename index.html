@@ -20,10 +20,19 @@
   width: 100%;
   text-align: center;
   font-size: 14px;
-  
+ 
 }
 
-
+td:nth-child(6){display:none;// It will hide the first column of the table}
+td:nth-child(7){display:none;// It will hide the first column of the table}
+td:nth-child(8){display:none;// It will hide the first column of the table}
+td:nth-child(9){display:none;// It will hide the first column of the table}
+td:nth-child(10){display:none;// It will hide the first column of the table}
+td:nth-child(12){display:none;// It will hide the first column of the table}
+td:nth-child(12){display:none;// It will hide the first column of the table}
+td:nth-child(13){display:none;// It will hide the first column of the table}
+td:nth-child(14){display:none;// It will hide the first column of the table}
+td:nth-child(15){display:none;// It will hide the first column of the table}
 
 #showData tr:nth-child(even){background-color: #f2f2f2;}
 
@@ -38,6 +47,7 @@
   color: white;
   background: #146775;
   font-size: 14px;
+  font-weight: bold;
   
   
   }
@@ -49,6 +59,7 @@
   background: #FFFFFF;
   font-size: 14px;
   font-weight: bold;
+  
   
   height: 20px;
  }
@@ -134,7 +145,7 @@ label {
 	<button type = "button" class="btn btn-primary btn-sm" onclick="read_value()" value="Read">Check</button>
 &nbsp;
 <code id="re" ></code> 
-  <h2>BBM Operasional</h2>
+  <h2 id="btnHide" >BBM Operasional</h2>
   <hr width="100%" color="green"> 
   <code hidden >2023</code> 
   
@@ -628,7 +639,6 @@ function sembunyi() {
 </script>
 
 <script>
-
 
 </script>
  
