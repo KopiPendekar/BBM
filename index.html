@@ -23,7 +23,7 @@
  
 }
 
-td:nth-child(6){display:none;// It will hide the first column of the table}
+
 td:nth-child(7){display:none;// It will hide the first column of the table}
 td:nth-child(8){display:none;// It will hide the first column of the table}
 td:nth-child(9){display:none;// It will hide the first column of the table}
@@ -520,11 +520,12 @@ $.getJSON(url, function (json) {
   
   
    
-  cell1.innerHTML = "<b>&nbsp;&nbsp;&nbsp;&nbsp;UNIT&nbsp;&nbsp;&nbsp;&nbsp;</b>";
+  cell1.innerHTML = "<b>&nbsp;&nbsp;&nbsp;&nbsp;UNITOPR&nbsp;&nbsp;&nbsp;&nbsp;</b>";
   cell2.innerHTML = "<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tanggal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>";
   cell3.innerHTML = "<b>&nbsp;&nbsp;&nbsp;Km/Hm&nbsp;&nbsp;&nbsp;</b>";
   cell4.innerHTML = "<b>&nbsp;&nbsp;&nbsp;Norma&nbsp;&nbsp;&nbsp;</b>";
   cell5.innerHTML = "<b>&nbsp;&nbsp;&nbsp;Qty&nbsp;&nbsp;&nbsp;</b>";
+  cell6.innerHTML = "<b>&nbsp;&nbsp;&nbsp;CostCenter&nbsp;&nbsp;&nbsp;</b>";
   
   
 
@@ -545,6 +546,8 @@ $.getJSON(url, function (json) {
     tabCell.innerHTML = json.records[i].Norma;
     tabCell = tr.insertCell(-1);
     tabCell.innerHTML = json.records[i].Qty;     
+    tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].CostCenter;     
     
             }
       
