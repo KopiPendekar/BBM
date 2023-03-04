@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <title>BBM OPERASIONAL</title>
   <meta charset="utf-8">
@@ -7,86 +7,65 @@
   
   
   <link rel="stylesheet" href="bootstrap.min.css">
-  <script src="jquery.slim.min.js"></script>
+  <script src="jquery.min.js"></script>
   <script src="popper.min.js"></script>
   <script src="bootstrap.bundle.min.js"></script>
 </head>
-
 <style>
-	
-#showData {
-  font-family: Arial, Helvetica, sans-serif;
+	table {
+   
+    font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 100%;
-  text-align: center;
-  font-size: 14px;
- 
-}
+  
+  width: 100%; 
+  table-layout: auto;
+    }
+    
 
-
-td:nth-child(7){display:none;// It will hide the first column of the table}
+td:nth-child(3){display:none;// It will hide the first column of the table}
+td:nth-child(4){display:none;// It will hide the first column of the table}
+td:nth-child(5){display:none;// It will hide the first column of the table}
+td:nth-child(6){display:none;// It will hide the first column of the table}
 td:nth-child(8){display:none;// It will hide the first column of the table}
-td:nth-child(9){display:none;// It will hide the first column of the table}
-td:nth-child(10){display:none;// It will hide the first column of the table}
-td:nth-child(12){display:none;// It will hide the first column of the table}
+td:nth-child(11){display:none;// It will hide the first column of the table}
 td:nth-child(12){display:none;// It will hide the first column of the table}
 td:nth-child(13){display:none;// It will hide the first column of the table}
 td:nth-child(14){display:none;// It will hide the first column of the table}
-td:nth-child(15){display:none;// It will hide the first column of the table}
+td:nth-child(16){display:none;// It will hide the first column of the table}
+
 
 #showData tr:nth-child(even){background-color: #f2f2f2;}
 
 #showData tr:hover {background-color: #80FF00;}
 
 
-   tr:first-child{
+   #showData tr:nth-child(1) , #showData tr:nth-child(22) {
   border: 1px solid #000;
   padding-top: 4px;   
   padding-bottom: 4px;
   text-align: center;  
   color: white;
   background: #146775;
-  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif; 
   font-weight: bold;
-  
-  
+  width: 100%;
   }
   
-  #showData tr:nth-child(20) {   /* kosong */
-  padding-top: 4px;   
-  padding-bottom: 4px;
-  text-align: center;  
-  background: #FFFFFF;
-  font-size: 14px;
-  font-weight: bold;  
-  height: 20px;
- }
-
+  #showData tr:nth-child(2) {
+  display:none;
+  }
   
-  
-   #showData tr:nth-child(21) {   /* 3rd row */
-  padding-top: 4px;   
-  padding-bottom: 4px;
-  color: white;
-  background: #146775;
-  text-align: center;
-  font-size: 14px;
-  font-weight: bold;
-  border: 1px solid #000;
- }
-
-
-    
-	
  </style>
  
  <style>
-   #showData tr:not(selector){
+   #showData tr:not(selector), td:not(selector){
   padding-top: 2px;
   padding-bottom: 2px;
   text-align: center;
-  font-size: 13px;
+  font-size: 12px;
   border: 1px solid #ddd;
+  font-family: Arial, Helvetica, sans-serif;
+  
    }
  </style>
  
@@ -97,7 +76,7 @@ td:nth-child(15){display:none;// It will hide the first column of the table}
   /* Double-sized Checkboxes */
   -ms-transform: scale(2); /* IE */
   -moz-transform: scale(2); /* FF */
-  -webkit-transform: scale(2); /* Safari and Chrome */
+  -webkit-transform: scale(1); /* Safari and Chrome */
   -o-transform: scale(2); /* Opera */
   padding: 10px;
 }
@@ -133,23 +112,29 @@ label {
 }
 </style>
   
-<body>
-      <br> 
-   
-<div class="container">
+<body >
+       <input type="checkbox" onclick="sembunyi()" />
+
 	
-      <button type = "button" class="btn btn-primary btn-sm" onclick="window.location.reload();">Kembali</button>
-    
-	<button type = "button" class="btn btn-primary btn-sm" onclick="read_value()" value="Read">Check</button>
-&nbsp;
-<code id="re" ></code> 
-  <h2 id="btnHide" >BBM Operasional</h2>
+<div align="center" id="exsem" name="exsem" >
+ <button type = "button" class="btn btn-secondary btn-sm" onclick="window.location.reload();">Kembali</button>
+ <button type = "button" class="btn btn-warning btn-sm" onclick="read_value()" value="Read">Check</button>
+ <button type = "button" hidden class="btn btn-success btn-sm" onclick="insert_value()" value="Insert">Insert</button>
+ <button type = "button" hidden class="btn btn-danger btn-sm" onclick="delete_value()" value="Delete">Delete</button>
+</div> 
+
+<div class="container">
+
+<center><b><code id="re" ></code></b></center>
+<br>
+	
+ <center>
+<b style="font-size:10px;color:black" >BBM<b style="font-size:30px;color:black" >INFRA<b style="font-size:30px;color:red">STRUKTUR</b></b></b>
+</center>
+
+
   <hr width="100%" color="green"> 
   <code hidden >2023</code> 
-  
-
-  
-  
  
   <form role="form" id="excel" name="excel" class="was-validated">
   
@@ -157,7 +142,7 @@ label {
   <div class="row">
     <div class="col">
       <label id="tes" for="uname">1. Pilih Unit:</label>       
-	   <select class="form-control" id="id" name="id" placeholder="JenisUnit" required onchange='RNorma()'/>	   
+	   <select class="form-control form-control-sm" id="id" name="id" placeholder="JenisUnit" required onchange='RNorma()'>	   
 	   <option style="display:none">
 		
 		<option>DT16
@@ -190,16 +175,20 @@ label {
 		<option>PC200-6
 		<option>GD13
 		<option>PC70
+        
+
 		</select>
 		
-      <div class="valid-feedback">Oke.</div>
+
+      <div class="valid-feedback"></div>
       <div class="invalid-feedback">Mohon Isi form Ini.</div>
     </div>
 	
     <div class="col">
       <label for="pwd">2. Tanggal:</label>
-      <input type="date" class="form-control"  id="name" name="name" required placeholder="Tanggal"/>
-      <div class="valid-feedback">Oke.</div>
+      <input type="date" class="form-control form-control-sm" onchange="setCorrect(this,'name');" required placeholder="Tanggal"/>     
+      <div class="valid-feedback"></div>
+      <input type="text" hidden id="name" name="name"/>
       <div class="invalid-feedback">Mohon Isi form Ini.</div>
     </div>
 	
@@ -209,39 +198,40 @@ label {
 	<div class="row">
     <div class="col">
       <label for="uname">3. Nama:</label>        
-		<select class="form-control" id="a3" name="a3" required placeholder="Nama"/>	   
+		<select class="form-control form-control-sm" id="a3" name="a3" required placeholder="Nama">	   
 	   <option style="display:none">
     <option>Agus Wiguna
 	
-	<option>Ais Siratol Jumilat
+	<option>Ais SJ
+    <option>Agus Wiguna
 	<option>Heri Fonda
-	<option>Slamet Suwanto
-	<option>Umar Ma'Ruf
-	<option>Febri Randy
-	<option>Teguh Susilo
-	<option>Prapto Purnomo
+	<option>Slamet S
+	<option>Umar M
+	<option>Febri R
+	<option>Teguh S
+	<option>Prapto P
     <option>Agus Wiyono
-	<option>Imam Zainuri
+	<option>Imam Z
 	<option>Julian
 	<option>Mistono
-	<option>Nanang Suprayogi
-	<option>Ratna Agil
-	<option>Rudi Supriyono
+	<option>Nanang S
+	<option>Ratna A
+	<option>Rudi S
 	<option>Suharno
-	<option>Tri Wahyudi
+	<option>Tri W
 	<option>Tusianto
 	<option>Parman
-	<option>Toto D
+	<option>Toto
    <option>Lainnya
 
    </select>
-      <div class="valid-feedback">Oke.</div>
+      <div class="valid-feedback"></div>
       <div class="invalid-feedback">Mohon Isi form Ini.</div>
     </div>
 	
     <div class="col">
       <label for="pwd">4. Aktifitas:</label>
-      <select class="form-control" id="a4" name="a4" required placeholder="Aktifitas" onkeyup="manage(this)" />
+      <select class="form-control form-control-sm" id="a4" name="a4" required placeholder="Aktifitas" onkeyup="manage(this)" >
     <option style="display:none">
       <option>OPR
       <option>TBS
@@ -250,7 +240,7 @@ label {
       <option>Lainnya        
       </select>
 	  
-      <div class="valid-feedback">Oke.</div>
+      <div class="valid-feedback"></div>
       <div class="invalid-feedback">Mohon Isi form Ini.</div>
     </div>
 	
@@ -260,22 +250,22 @@ label {
 	<div class="row">
     <div class="col">
       <label for="uname">5. HM/KM Awal:</label>
-       <input type="number" maxlength="6" class="form-control" maxlength="4" id="a5" name="a5" placeholder="Awal" required onkeyup="RNorma();" />
-      <div class="valid-feedback">Oke.</div>
+       <input type="number" maxlength="6" class="form-control form-control-sm" maxlength="4" id="a5" name="a5" placeholder="Awal" required onkeyup="RNorma();" />
+      <div class="valid-feedback"></div>
       <div class="invalid-feedback">Mohon Isi form Ini.</div>
     </div>
 	
     <div class="col">
       <label for="pwd">6. HM/KM Akhir:</label>
-      <input type="number" maxlength="6" class="form-control" id="a6" name="a6" placeholder="Akhir" required onkeyup="RNorma();" />
-      <div class="valid-feedback">Oke.</div>
+      <input type="number" maxlength="6" class="form-control form-control-sm" id="a6" name="a6" placeholder="Akhir" required onkeyup="RNorma();" />
+      <div class="valid-feedback"></div>
       <div class="invalid-feedback">Mohon Isi form Ini.</div>
     </div>
 	
 	<div class="col">
       <label for="pwd">7. Total HM/KM:</label>
-      <input type="number"readonly class="form-control" id="a7" name="a7" placeholder="Total" required onchange='RNorma()' />
-      <div class="valid-feedback">Oke.</div>
+      <input type="number"readonly class="form-control form-control-sm" id="a7" name="a7" placeholder="Total" required onchange='RNorma()' />
+      <div class="valid-feedback"></div>
       <div class="invalid-feedback">Mohon Isi form Ini.</div>
     </div>
 	
@@ -284,22 +274,22 @@ label {
 	<div class="row">
     <div class="col">
       <label for="uname">8. Norma:</label>
-       <input type="text" readonly class="form-control" id="a8" name="a8" placeholder="Norma"  />
-      <div class="valid-feedback">Oke.</div>
+       <input type="text" readonly class="form-control form-control-sm" id="a8" name="a8" placeholder="Norma"  />
+      <div class="valid-feedback"></div>
       <div class="invalid-feedback">Mohon Isi form Ini.</div>
     </div>
 	
     <div class="col">
       <label for="pwd">9. Qty:</label>
-      <input type="number"  readonly class="form-control" style="background-color:yellow;color:black;" id="a9" name="a9" placeholder="Qty" />
-      <div class="valid-feedback">Oke.</div>
+      <input type="number"  readonly class="form-control form-control-sm" style="background-color:yellow;color:black;" id="a9" name="a9" placeholder="Qty" />
+      <div class="valid-feedback"></div>
       <div class="invalid-feedback">Mohon Isi form Ini.</div>
     </div>
 	
 	<div class="col">
       <label for="pwd">10. Center:</label>
-      <input type="text" readonly class="form-control" id="a10" name="a10" placeholder="Center"  />
-      <div class="valid-feedback">Oke.</div>
+      <input type="text" readonly class="form-control form-control-sm" id="a10" name="a10" placeholder="Center"  />
+      <div class="valid-feedback"></div>
       <div class="invalid-feedback">Mohon Isi form Ini.</div>
     </div>	
 	</div>
@@ -310,12 +300,12 @@ label {
       <input hidden readonly  id="a14" name="a14" />
       
 	
-	<br>
 	
-	<div class="col">
-      <label for="pwd">11. Keterangan:</label>
-      <input type="text" maxlength="25" class="form-control" id="a15" name="a15" placeholder="Keterangan (Jika Perlu)"  />
-      <div class="valid-feedback">Oke</div>
+	
+	<div hidden class="col">
+      <label for="pwd">11. BPB:</label>
+      <input type="text" maxlength="25" class="form-control form-control-sm" id="a15" name="a15" placeholder="No BPB"  />
+      <div class="valid-feedback"></div>
       <div class="invalid-feedback">Mohon Isi form Ini.</div>
     </div>
 	
@@ -325,13 +315,10 @@ label {
     <div class="form-group form-check">
       <label class="form-check-label">
         <input class="form-check-input" type="checkbox" name="remember" required> <br><br> 
-        <div class="valid-feedback"><button type="button" class="btn btn-primary" onclick="update_value()" value="Update" >Update</button></div>
+        <div class="valid-feedback"><button type="button" class="btn btn-primary btn-sm" onclick="update_value()" value="Update" >Update</button></div>
         <div class="invalid-feedback">12. Klik Centang Untuk Melanjutkan.</div>
       </label>
     </div>
-	
-<button hidden type = "button"  class="btn btn-default" id = "b1" onClick="insert_value()" value = "Insert" >Input</button>
-<button hidden type = "button"  class="btn btn-default" onclick="delete_value()" value="Delete" >Delete</button>
 
   </form>
 </div>
@@ -345,7 +332,7 @@ label {
   
 </body>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
 <script>
   
   var script_url = "https://script.google.com/macros/s/AKfycbzhCTHB_-lWqk3-ENV_ySgv2nwrvQF7qvUfNP-F-wPozmWylKEj/exec";
@@ -520,14 +507,23 @@ $.getJSON(url, function (json) {
   
   
    
-  cell1.innerHTML = "<b>&nbsp;&nbsp;&nbsp;&nbsp;UNITOPR&nbsp;&nbsp;&nbsp;&nbsp;</b>";
-  cell2.innerHTML = "<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tanggal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>";
-  cell3.innerHTML = "<b>&nbsp;&nbsp;&nbsp;Km/Hm&nbsp;&nbsp;&nbsp;</b>";
-  cell4.innerHTML = "<b>&nbsp;&nbsp;&nbsp;Norma&nbsp;&nbsp;&nbsp;</b>";
-  cell5.innerHTML = "<b>&nbsp;&nbsp;&nbsp;Qty&nbsp;&nbsp;&nbsp;</b>";
-  cell6.innerHTML = "<b>&nbsp;&nbsp;&nbsp;CostCenter&nbsp;&nbsp;&nbsp;</b>";
-  
-  
+  cell1.innerHTML = "<b>UNIT</b>";
+  cell2.innerHTML = "<b>Tanggal</b>";
+  cell3.innerHTML = "<b>NamaKaryawan</b>";
+  cell4.innerHTML = "<b>Aktifitas</b>";
+  cell5.innerHTML = "<b>Awal</b>";
+  cell6.innerHTML = "<b>Akhir</b>";
+  cell7.innerHTML = "<b>KM</b>";
+  cell8.innerHTML = "<b>Norma</b>";
+  cell9.innerHTML = "<b>Qty</b>";
+  cell10.innerHTML = "<b>CostCenter</b>";
+  cell11.innerHTML = "<b>tes11</b>";
+  cell12.innerHTML = "<b>tes12</b>";
+  cell13.innerHTML = "<b>tes13</b>";
+  cell14.innerHTML = "<b>tes14</b>";
+  cell15.innerHTML = "<b>KET</b>";
+  cell16.innerHTML = "<b>song</b>";
+
 
   
   
@@ -539,15 +535,37 @@ $.getJSON(url, function (json) {
     var tabCell = tr.insertCell(-1);
                 tabCell.innerHTML = json.records[i].ID;
     tabCell = tr.insertCell(-1);
-    tabCell.innerHTML = json.records[i].Tanggal;   
+    tabCell.innerHTML = json.records[i].Tanggal;
+    tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].NamaKaryawan;
+    tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].Aktifitas;
+    tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].Awal;
+    tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].Akhir;
     tabCell = tr.insertCell(-1);
     tabCell.innerHTML = json.records[i].Total;
     tabCell = tr.insertCell(-1);
     tabCell.innerHTML = json.records[i].Norma;
     tabCell = tr.insertCell(-1);
-    tabCell.innerHTML = json.records[i].Qty;     
+    tabCell.innerHTML = json.records[i].Qty;
     tabCell = tr.insertCell(-1);
-    tabCell.innerHTML = json.records[i].CostCenter;     
+    tabCell.innerHTML = json.records[i].CostCenter;
+	tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].tes11;    
+    tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].tes12;    
+    tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].tes13;    
+    tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].tes14;    
+    tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].Keterangan;    
+
+    
+    
+    
     
             }
       
@@ -583,54 +601,54 @@ var f = document.getElementById('a8').value;
 		 
 }
 
-if(b=="DT14") {document.forms['excel']['a8'].value= "3.45 ";document.forms['excel']['a10'].value= "5G0100--";document.getElementById('a9').value = bbmDT} 
-if(b=="DT16") {document.forms['excel']['a8'].value= "3.45 ";document.forms['excel']['a10'].value= "5G010016";document.getElementById('a9').value = bbmDT} 
-if(b=="DT23") {document.forms['excel']['a8'].value= "3.03 ";document.forms['excel']['a10'].value= "5G010023";document.getElementById('a9').value = bbmDT} 
-if(b=="DT24") {document.forms['excel']['a8'].value= "3.45 ";document.forms['excel']['a10'].value= "5G010024";document.getElementById('a9').value = bbmDT} 
-if(b=="DT25") {document.forms['excel']['a8'].value= "3.33 ";document.forms['excel']['a10'].value= "5G010025";document.getElementById('a9').value = bbmDT} 
-if(b=="DT26") {document.forms['excel']['a8'].value= "3.57 ";document.forms['excel']['a10'].value= "5G010026";document.getElementById('a9').value = bbmDT} 
-if(b=="DT28") {document.forms['excel']['a8'].value= "3.33 ";document.forms['excel']['a10'].value= "5G010028";document.getElementById('a9').value = bbmDT} 
-if(b=="DT31") {document.forms['excel']['a8'].value= "3.70 ";document.forms['excel']['a10'].value= "5G010033";document.getElementById('a9').value = bbmDT} 
-if(b=="DT37") {document.forms['excel']['a8'].value= "3.33 ";document.forms['excel']['a10'].value= "5G010037";document.getElementById('a9').value = bbmDT} 
-if(b=="DT38") {document.forms['excel']['a8'].value= "3.13 ";document.forms['excel']['a10'].value= "5G010047";document.getElementById('a9').value = bbmDT} 
-if(b=="DT39") {document.forms['excel']['a8'].value= "3.33 ";document.forms['excel']['a10'].value= "5G010048";document.getElementById('a9').value = bbmDT} 
-if(b=="DT52") {document.forms['excel']['a8'].value= "3.57 ";document.forms['excel']['a10'].value= "5G010061";document.getElementById('a9').value = bbmDT} 
-if(b=="DT53") {document.forms['excel']['a8'].value= "3.45 ";document.forms['excel']['a10'].value= "5G010062";document.getElementById('a9').value = bbmDT} 
-if(b=="DT54") {document.forms['excel']['a8'].value= "3.23 ";document.forms['excel']['a10'].value= "5G010063";document.getElementById('a9').value = bbmDT} 
-if(b=="TR01") {document.forms['excel']['a8'].value= "1.20 ";document.forms['excel']['a10'].value= "4G000001";document.getElementById('a9').value = bbmDT} 
-if(b=="TCPO") {document.forms['excel']['a8'].value= "1.40 ";document.forms['excel']['a10'].value= "5G020002";document.getElementById('a9').value = bbmDT} 
-if(b=="TR02") {document.forms['excel']['a8'].value= "1.40 ";document.forms['excel']['a10'].value= "5G010065";document.getElementById('a9').value = bbmDT} 
-if(b=="DT41") {document.forms['excel']['a8'].value= "3.20 ";document.forms['excel']['a10'].value= "5G010049";document.getElementById('a9').value = bbmDT} 
-if(b=="DMK1") {document.forms['excel']['a8'].value= "2.63 ";document.forms['excel']['a10'].value= "5M000001";document.getElementById('a9').value = bbmDT} 
-if(b=="JCB") {document.forms['excel']['a8'].value= "8.10 ";document.forms['excel']['a10'].value= "4E000004";document.getElementById('a9').value = bbmAB} 
-if(b=="BW211D") {document.forms['excel']['a8'].value= "11.00 ";document.forms['excel']['a10'].value= "4C010008";document.getElementById('a9').value = bbmAB} 
-if(b=="BW219D") {document.forms['excel']['a8'].value= "14.00 ";document.forms['excel']['a10'].value= "4C010007";document.getElementById('a9').value = bbmAB} 
-if(b=="GD16") {document.forms['excel']['a8'].value= "11.30 ";document.forms['excel']['a10'].value= "4B010006";document.getElementById('a9').value = bbmAB} 
-if(b=="GD535") {document.forms['excel']['a8'].value= "12.00 ";document.forms['excel']['a10'].value= "4B010010";document.getElementById('a9').value = bbmAB} 
-if(b=="PC130") {document.forms['excel']['a8'].value= "9.90 ";document.forms['excel']['a10'].value= "4D010005";document.getElementById('a9').value = bbmAB} 
-if(b=="PC200-10") {document.forms['excel']['a8'].value= "13.50 ";document.forms['excel']['a10'].value= "4D010006";document.getElementById('a9').value = bbmAB} 
-if(b=="PC200-8") {document.forms['excel']['a8'].value= "16.10 ";document.forms['excel']['a10'].value= "4D010004";document.getElementById('a9').value = bbmAB} 
-if(b=="PC45") {document.forms['excel']['a8'].value= "6.00 ";document.forms['excel']['a10'].value= "4D010003";document.getElementById('a9').value = bbmAB} 
-if(b=="PC200-6") {document.forms['excel']['a8'].value= "16.10 ";document.forms['excel']['a10'].value= "4D010001";document.getElementById('a9').value = bbmAB} 
-if(b=="GD13") {document.forms['excel']['a8'].value= "10.00 ";document.forms['excel']['a10'].value= "4B010009";document.getElementById('a9').value = bbmAB} 
-if(b=="PC70") {document.forms['excel']['a8'].value= "7.5 ";document.forms['excel']['a10'].value= "4D010007";document.getElementById('a9').value = bbmAB} 
-if(b=="TES") {document.forms['excel']['a8'].value= "3.20 ";document.forms['excel']['a10'].value= "Tes Cost";document.getElementById('a9').value = bbmAB} 
+if(b=="BPB") {document.forms['excel']['a8'].value= "3.45 ";document.forms['excel']['a10'].value= "5G0100--";document.getElementById('a9').value = bbmDT;document.getElementById('a15').value = "=Q2"} 
+if(b=="DT16") {document.forms['excel']['a8'].value= "3.45 ";document.forms['excel']['a10'].value= "5G010016";document.getElementById('a9').value = bbmDT;document.getElementById('a15').value = "=Q3"} 
+if(b=="DT23") {document.forms['excel']['a8'].value= "3.03 ";document.forms['excel']['a10'].value= "5G010023";document.getElementById('a9').value = bbmDT;document.getElementById('a15').value = "=Q4"} 
+if(b=="DT24") {document.forms['excel']['a8'].value= "3.45 ";document.forms['excel']['a10'].value= "5G010024";document.getElementById('a9').value = bbmDT;document.getElementById('a15').value = "=Q5"} 
+if(b=="DT25") {document.forms['excel']['a8'].value= "3.33 ";document.forms['excel']['a10'].value= "5G010025";document.getElementById('a9').value = bbmDT;document.getElementById('a15').value = "=Q6"} 
+if(b=="DT26") {document.forms['excel']['a8'].value= "3.57 ";document.forms['excel']['a10'].value= "5G010026";document.getElementById('a9').value = bbmDT;document.getElementById('a15').value = "=Q7"} 
+if(b=="DT28") {document.forms['excel']['a8'].value= "3.33 ";document.forms['excel']['a10'].value= "5G010028";document.getElementById('a9').value = bbmDT;document.getElementById('a15').value = "=Q8"} 
+if(b=="DT31") {document.forms['excel']['a8'].value= "3.70 ";document.forms['excel']['a10'].value= "5G010033";document.getElementById('a9').value = bbmDT;document.getElementById('a15').value = "=Q9"} 
+if(b=="DT37") {document.forms['excel']['a8'].value= "3.33 ";document.forms['excel']['a10'].value= "5G010037";document.getElementById('a9').value = bbmDT;document.getElementById('a15').value = "=Q10"} 
+if(b=="DT38") {document.forms['excel']['a8'].value= "3.13 ";document.forms['excel']['a10'].value= "5G010047";document.getElementById('a9').value = bbmDT;document.getElementById('a15').value = "=Q11"} 
+if(b=="DT39") {document.forms['excel']['a8'].value= "3.33 ";document.forms['excel']['a10'].value= "5G010048";document.getElementById('a9').value = bbmDT;document.getElementById('a15').value = "=Q12"} 
+if(b=="DT52") {document.forms['excel']['a8'].value= "3.57 ";document.forms['excel']['a10'].value= "5G010061";document.getElementById('a9').value = bbmDT;document.getElementById('a15').value = "=Q13"} 
+if(b=="DT53") {document.forms['excel']['a8'].value= "3.45 ";document.forms['excel']['a10'].value= "5G010062";document.getElementById('a9').value = bbmDT;document.getElementById('a15').value = "=Q14"} 
+if(b=="DT54") {document.forms['excel']['a8'].value= "3.23 ";document.forms['excel']['a10'].value= "5G010063";document.getElementById('a9').value = bbmDT;document.getElementById('a15').value = "=Q15"} 
+if(b=="TR01") {document.forms['excel']['a8'].value= "1.20 ";document.forms['excel']['a10'].value= "4G000001";document.getElementById('a9').value = bbmDT;document.getElementById('a15').value = "=Q16"} 
+if(b=="TCPO") {document.forms['excel']['a8'].value= "1.40 ";document.forms['excel']['a10'].value= "5G020002";document.getElementById('a9').value = bbmDT;document.getElementById('a15').value = "=17"} 
+if(b=="TR02") {document.forms['excel']['a8'].value= "1.40 ";document.forms['excel']['a10'].value= "5G010065";document.getElementById('a9').value = bbmDT;document.getElementById('a15').value = "=Q18"} 
+if(b=="DT41") {document.forms['excel']['a8'].value= "3.20 ";document.forms['excel']['a10'].value= "5G010049";document.getElementById('a9').value = bbmDT;document.getElementById('a15').value = "=Q19"} 
+if(b=="DMK1") {document.forms['excel']['a8'].value= "2.63 ";document.forms['excel']['a10'].value= "5M000001";document.getElementById('a9').value = bbmDT;document.getElementById('a15').value = "=Q20"} 
+if(b=="JCB") {document.forms['excel']['a8'].value= "8.10 ";document.forms['excel']['a10'].value= "4E 000004";document.getElementById('a9').value = bbmAB;document.getElementById('a15').value = "=Q23"} 
+if(b=="BW211D") {document.forms['excel']['a8'].value= "11.00 ";document.forms['excel']['a10'].value= "4C010008";document.getElementById('a9').value = bbmAB;document.getElementById('a15').value = "=Q25"} 
+if(b=="BW219D") {document.forms['excel']['a8'].value= "14.00 ";document.forms['excel']['a10'].value= "4C010007";document.getElementById('a9').value = bbmAB;document.getElementById('a15').value = "=Q25"} 
+if(b=="GD16") {document.forms['excel']['a8'].value= "11.30 ";document.forms['excel']['a10'].value= "4B010006";document.getElementById('a9').value = bbmAB;document.getElementById('a15').value = "=Q26"} 
+if(b=="GD535") {document.forms['excel']['a8'].value= "12.00 ";document.forms['excel']['a10'].value= "4B010010";document.getElementById('a9').value = bbmAB;document.getElementById('a15').value = "=Q27"} 
+if(b=="PC130") {document.forms['excel']['a8'].value= "9.90 ";document.forms['excel']['a10'].value= "4D010005";document.getElementById('a9').value = bbmAB;document.getElementById('a15').value = "=Q28"} 
+if(b=="PC200-10") {document.forms['excel']['a8'].value= "13.50 ";document.forms['excel']['a10'].value= "4D010006";document.getElementById('a9').value = bbmAB;document.getElementById('a15').value = "=Q29"} 
+if(b=="PC200-8") {document.forms['excel']['a8'].value= "16.10 ";document.forms['excel']['a10'].value= "4D010004";document.getElementById('a9').value = bbmAB;document.getElementById('a15').value = "=Q30"} 
+if(b=="PC45") {document.forms['excel']['a8'].value= "6.00 ";document.forms['excel']['a10'].value= "4D010003";document.getElementById('a9').value = bbmAB;document.getElementById('a15').value = "=Q32"} 
+if(b=="PC200-6") {document.forms['excel']['a8'].value= "16.10 ";document.forms['excel']['a10'].value= "4D010001";document.getElementById('a9').value = bbmAB;document.getElementById('a15').value = "=Q33"} 
+if(b=="GD13") {document.forms['excel']['a8'].value= "10.00 ";document.forms['excel']['a10'].value= "4B010009";document.getElementById('a9').value = bbmAB;document.getElementById('a15').value = "=Q33"} 
+if(b=="PC70") {document.forms['excel']['a8'].value= "7.5 ";document.forms['excel']['a10'].value= "4D010007";document.getElementById('a9').value = bbmAB;document.getElementById('a15').value = "=Q34"} 
+if(b=="TES") {document.forms['excel']['a8'].value= "3.20 ";document.forms['excel']['a10'].value= "Tes Cost";document.getElementById('a9').value = bbmAB;document.getElementById('a15').value = "=Q35"} 
 
+  
   
   else {
     document.getElementById("tes").innerHTML="<font color='black'><b>1. Pilih Unit</b></font>";
   }
  } 
- 
-
-
-
 
 </script>
 
+
+
+
 <script>
 function sembunyi() {
-  var x = document.getElementById("excel");
+  var x = document.getElementById("exsem");
   if (x.style.display === "none") {
     x.style.display = "block";
   } else {
@@ -639,8 +657,34 @@ function sembunyi() {
 }
 </script>
 
-<script>
+<script language="javascript">
+var matchEnterdDate=0;
+//function to set back date opacity for non supported browsers
+    window.onload =function(){
+        var input = document.createElement('input');
+        input.setAttribute('type','date');
+        input.setAttribute('value', 'some text'); 
+        if(input.value === "some text"){
+            allDates = document.getElementsByClassName("form-control form-control-sm");
+            matchEnterdDate=1;
+            for (var i = 0; i < allDates.length; i++) {
+                allDates[i].style.opacity = "1";
+            } 
+        }
+    }
+//function to convert enterd date to any format
 
-</script>
- 
+function setCorrect(xObj,xTraget){
+	
+    var date = new Date(xObj.value);
+    var month = date.toLocaleString('default', { month: 'short' });
+    var day = date.getDate();
+    var year = date.getFullYear();
+    if(month!='NaN'){
+        document.getElementById(xTraget).value=day+" "+month+" \xa0\xa0\xa0";
+    }else{
+        if(matchEnterdDate==1){document.getElementById(xTraget).value=xObj.value;}
+    }
+}
+   </script>
 </html>
