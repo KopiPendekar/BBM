@@ -1,105 +1,308 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <title>BBM OPERASIONAL</title>
+  <title>BBM 2023</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
+
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+
   
-  <link rel="stylesheet" href="bootstrap.min.css">
   
-  
-  
-  
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+ <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+
+
 </head>
 <style>
-	table {
-   
-    font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  
-  width: 100%; 
-  table-layout: auto;
-    }
+	
+		<!-- Tombo //-->  	    
+		
+
+		#tempatFUB{visibility: hidden;}
+		#tombolEdit{font-size: 11px;}
+		#penguin{font-size: 17px;}
+		
+		
+		#okeyy{background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+font-size: 10px;
+}
+input[type="checkbox"] {
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background: transparent;
+    -webkit-appearance: Xnone;
+    -moz-appearance: Xnone;
+    appearance: Xnone;
+    border: none;
+    outline: none;
+    position: relative;
+    left: 50px;
+    top: -25px;
+    cursor: pointer;
+}
+		
+		b{ display: inline-block; margin:0em; } 
+.flip_H{ transform: scale(-1, 1); color:red; }
+.flip_V{ transform: scale(1, -1); color:green; }
+		
+		
+	</style>
+	
+
+<style>
+#caritanggal {
     
+	
+	background: 100% 100%/250% 100% #fff linear-gradient(135deg, transparent 33%, #2c92c8 66%, #892cc8) no-repeat;
+	width: 100%; 
+	border: none;
+	border-radius: none;
+	outline: none;
+	font-weight: bold;
+	font-color: white;
+	color: white;
+	font-size: 20px;
+	
+	text-align: center;    
+	
+}   
 
-td:nth-child(3){display:none;// It will hide the first column of the table}
-td:nth-child(4){display:none;// It will hide the first column of the table}
-td:nth-child(5){display:none;// It will hide the first column of the table}
-td:nth-child(6){display:none;// It will hide the first column of the table}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1; /* Firefox */
+}
 
-td:nth-child(11){display:none;// It will hide the first column of the table}
-td:nth-child(12){display:none;// It will hide the first column of the table}
-td:nth-child(13){display:none;// It will hide the first column of the table}
-td:nth-child(14){display:none;// It will hide the first column of the table}
-td:nth-child(16){display:none;// It will hide the first column of the table}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: white;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: white;
+}
+
+</style>
+	
+<style>
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   padding-top: 4px;   
+   padding-bottom: 4px;
+   width: 100%;
+   height: 5%;
+   background: 100% 100%/250% 100% #fff linear-gradient(135deg, transparent 33%, #2c92c8 66%, #892cc8) no-repeat;
+   color: white;
+   text-align: center;
+   
+}
+
+	</style>
+	
+<style>
+     
+    table
+{
+    counter-reset: rowNumber;
+}
+
+table tr > td:first-child
+{
+    counter-increment: rowNumber;
+}
+
+table tr td:nth-child(16)::before
+{
+    content: counter(rowNumber)" ";
+    min-width: 0.5em;
+    margin-right: -0.5em;
+    font-size: 5px;
+}
+
+th:nth-child(4){display:none;} /* Driver */
+th:nth-child(3){display:none;} /* Act */
+
+th:nth-child(12){display:none;} /* Keterangan */
+th:nth-child(13){display:none;} /* Tes13 */
+th:nth-child(14){display:none;} /* Tes14 */
+th:nth-child(15){display:none;} /* Tes15 */
+th:nth-child(16){display:none;} /* Edit Penguin */
 
 
-#showData tr:nth-child(even){background-color: #f2f2f2;}
+td:nth-child(4){display:none;}
+td:nth-child(3){display:none;}
 
-#showData tr:hover {background-color: #80FF00;}
+td:nth-child(10){font-weight: bold;=}
 
+td:nth-child(12){display:none;}
+td:nth-child(13){display:none;}
+td:nth-child(14){display:none;}
+td:nth-child(15){display:none;}
+td:nth-child(16){display:none;}
 
-   #showData tr:nth-child(1) , #showData tr:nth-child(22) {
+#showData tr:nth-child(even){background-color: Beige;}
+#showData tr:nth-child(odd){background-color: OldLace;}
+#showData tr:nth-child(3n-0){background-color: WhiteSmoke;}
+
+#showData tr:hover {background-color: LightSalmon;color: white;}
+
+   #showData th {
   border: 1px solid #000;
-  padding-top: 4px;   
-  padding-bottom: 4px;
+  cursor: pointer;
+  font-size: 11px;
+  width: 10%;   
+  padding-top: 2px;   
+  padding-bottom: 2px;
   text-align: center;  
   color: white;
-  background: #146775;
+  background: tomato;
   font-family: Arial, Helvetica, sans-serif; 
   font-weight: bold;
-  width: 100%;
+  white-space: nowrap; 
+  table-layout: fixed;
+  position: sticky;
+  top: 1px; 
   }
   
-  #showData tr:nth-child(2) {
-  display:none;
-  }
+  #showData th:nth-child(3){
+background: DodgerBlue;}
+
+#showData td:nth-child(3){
+  	text-align: left;  
+background: ;}
+
+  #showData tr:nth-child(2){
+display:none;}
   
- </style>
- 
- <style>
    #showData tr:not(selector), td:not(selector){
   padding-top: 2px;
   padding-bottom: 2px;
   text-align: center;
   font-size: 11px;
-  border: 1px solid #ddd;
+  border: 1px solid #ddb;
+  table-layout: fixed;
+  white-space: nowrap;
   font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  
+  
   
    }
- </style>
- 
- 
+
+</style>
+	
 <style>
-	input[type=checkbox]
-{
-  /* Double-sized Checkboxes */
-  -ms-transform: scale(2); /* IE */
-  -moz-transform: scale(2); /* FF */
-  -webkit-transform: scale(1); /* Safari and Chrome */
-  -o-transform: scale(2); /* Opera */
-  padding: 10px;
-}
+
 
 label {
     font-size: 12px;
     width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+	text-transform: capitalize;
     
 }
 
+input {
+    font-family: Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+    
+}
+
+
+</style>
+
+<style>
 #loader {
-  border: 3px solid #f3f3f3;
+  left: 40%;
+  right: 50%;
+  top: 30%; 
+  width: 80px;
+  height: 80px;
+  display: block;
+  margin: -50px 0 0 -50px;
+  
+  background-size: 50px 50px, 100px 76px, 50px 50px, 120px 40px;
+  background-position: 0px 30px, 37px 0px, 122px 30px, 25px 40px;
+  background-repeat: no-repeat;
+  position: absolute;
+  box-sizing: border-box;
+  
+  
+}
+#loader::before {
+  content: '';  
+  left: 60px;
+  bottom: 18px;
+  position: absolute;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
+  background-color: tomato;
+  background-image: radial-gradient(circle 8px at 18px 18px, #FFF 100%, transparent 0), radial-gradient(circle 4px at 18px 0px, #FFF 100%, transparent 0), radial-gradient(circle 4px at 0px 18px, #FFF 100%, transparent 0), radial-gradient(circle 4px at 36px 18px, #FFF 100%, transparent 0), radial-gradient(circle 4px at 18px 36px, #FFF 100%, transparent 0), radial-gradient(circle 4px at 30px 5px, #FFF 100%, transparent 0), radial-gradient(circle 4px at 30px 5px, #FFF 100%, transparent 0), radial-gradient(circle 4px at 30px 30px, #FFF 100%, transparent 0), radial-gradient(circle 4px at 5px 30px, #FFF 100%, transparent 0), radial-gradient(circle 4px at 5px 5px, #FFF 100%, transparent 0);
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  animation: rotationBack 3s linear infinite;
+  
+}
+#loader::after {
+  content: '';  
+  left: 94px;
+  bottom: 15px;
+  position: absolute;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
-  border-top: 3px solid blue;
-  border-right: 3px solid green;
-  border-bottom: 3px solid red;
-  width: 30px;
-  height: 30px;
+  background-color: tomato;
+  background-image: radial-gradient(circle 5px at 12px 12px, #FFF 100%, transparent 0), radial-gradient(circle 2.5px at 12px 0px, #FFF 100%, transparent 0), radial-gradient(circle 2.5px at 0px 12px, #FFF 100%, transparent 0), radial-gradient(circle 2.5px at 24px 12px, #FFF 100%, transparent 0), radial-gradient(circle 2.5px at 12px 24px, #FFF 100%, transparent 0), radial-gradient(circle 2.5px at 20px 3px, #FFF 100%, transparent 0), radial-gradient(circle 2.5px at 20px 3px, #FFF 100%, transparent 0), radial-gradient(circle 2.5px at 20px 20px, #FFF 100%, transparent 0), radial-gradient(circle 2.5px at 3px 20px, #FFF 100%, transparent 0), radial-gradient(circle 2.5px at 3px 3px, #FFF 100%, transparent 0);
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  animation: rotationBack 4s linear infinite reverse;
+  
+}
+
+@keyframes rotationBack {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+visibility:hidden;
+</style>
+
+<style>
+#loader2 {
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  top: 30%;
+  z-index: 1;
+  width: 80px;
+  height: 80px;
+  margin: -50px 0 0 -50px;
+  border: 10px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 10px solid blue;
+  border-right: 10px solid green;
+  border-bottom: 10px solid red;
+  
   -webkit-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite;
   visibility:hidden;
+  
+  
 }
 
 @-webkit-keyframes spin {
@@ -112,240 +315,443 @@ label {
   100% { transform: rotate(360deg); }
 }
 </style>
+
+<style>
+#mega-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 15px;
+  left: 15px;
+  width: 50px;
+  height: 50px;
+  cursor: default;
+  transition: all 0.15s ease-out;
+  z-index: 1;
+  will-change: width;
+}
+
+
+#mega-button::before {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  padding-top: 0px;
+  background: 100% 100%/250% 100% #fff linear-gradient(135deg, transparent 33%, #2c92c8 66%, #892cc8) no-repeat;
+  border-radius: 50%;
+  content: "+";
+  font-family: "Font Awesome 5 Pro";
+  font-size: 32px;
+  font-weight: 400;
+  text-align: center;  
+  color: white;
+  transition: inherit;
+  box-sizing: border-box;
+  cursor: inherit;
+  box-shadow: 0 10px 20px -10px #1a237e;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  will-change: transform, background-color, box-shadow;
+}
+#mega-button > .sub-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 25px;
+  width: 36px;
+  height: 36px;
+  background: #69C9FF;
+  text-align: center;  
+  color: white;
+  border-radius: 50%;
+  text-decoration: none !important;
+  box-shadow: 0 10px 20px -10px #1a237e;
+  transform: translate(-50%, -50%) scale(0.75);
+  transition: inherit;
   
-<body >
-       <input type="checkbox" onclick="sembunyi()" />
+  
+  z-index: -1;
+  will-change: transform, transition-duration;
+}
+#mega-button > .sub-button::before {
+  font-family: "Font Awesome 5 Pro";
+  color: #fff;
+  font-size: 20px;
+  font-weight: 400;
+  transform: rotate(-90deg);
+  transition: inherit;
+  will-change: transform;
+}
+#mega-button > .sub-button#buttons--write::before {
+  content: "";
+}
+#mega-button > .sub-button#buttons--archive::before {
+  content: "";
+}
+#mega-button > .sub-button#buttons--delete::before {
+  content: "";
+}
+#mega-button:hover {
+  width: calc(50px + 2px + 123px);
+}
+#mega-button:hover::before {
+  transform: rotate(45deg) scale(0.675);
+  padding-right: 2px;
+  box-shadow: 7.5px 7.5px 20px -10px rgba(55, 71, 79, 0);
+  background: -100% 100%/250% 100% rgba(144, 164, 174, 0.625) linear-gradient(135deg, transparent 33%, #2c92c8 66%, #892cc8) no-repeat;
+}
+#mega-button:hover::after {
+  width: 200px;
+}
+#mega-button:hover > .sub-button::before {
+  transform: rotate(0deg);
+}
+#mega-button:hover > .sub-button:nth-of-type(1) {
+  transform: translate(calc(-50% + 50px + 0% + 0px + 2px), -50%) scale(1);
+  transition-delay: 0.1s;
+}
+#mega-button:hover > .sub-button:nth-of-type(1):hover {
+  transform: translate(calc(-50% + 50px + 0% + 0px + 2px), -50%) scale(1.18);
+  transition-duration: 0.15s;
+}
+#mega-button:hover > .sub-button:nth-of-type(2) {
+  transform: translate(calc(-50% + 50px + 100% + 5px + 2px), -50%) scale(1);
+  transition-delay: 0.05s;
+}
+#mega-button:hover > .sub-button:nth-of-type(2):hover {
+  transform: translate(calc(-50% + 50px + 100% + 5px + 2px), -50%) scale(1.18);
+  transition-duration: 0.15s;
+}
+#mega-button:hover > .sub-button:nth-of-type(3) {
+  transform: translate(calc(-50% + 50px + 200% + 10px + 2px), -50%) scale(1);
+  transition-delay: 0s;
+}
+#mega-button:hover > .sub-button:nth-of-type(3):hover {
+  transform: translate(calc(-50% + 50px + 200% + 10px + 2px), -50%) scale(1.18);
+  transition-duration: 0.15s;
+}
+#mega-button:hover > .sub-button:hover {
+  background-color: #3949ab;
+}
+#mega-button:hover > .sub-button:hover::before {
+  transform: scale(0.85);
+}
+#mega-button:hover .tooltip, .modal:target ~ #mega-button .tooltip {
+  opacity: 0;
+}
+
+
+
+</style>
+
+<body onload="read_value()" > 
+<span class="" style="position: relative;display: inline-block;border: 0px solid #a9a9a9;height: 27px;width: 100%" onchange="myCari(event)"/>
+ <input type="date" class="form-control form-control-sm" onchange="setCorrect(this,'caritanggal');" style="position: absolute; opacity: 0.0;height: 100%;width: 100%;">
+<input type="text" id="caritanggal" name="caritanggal" style="border: none;height: 100%;width: 100%;" tabindex="-1">
+<span style="display: inline-block;width: 20px;z-index: 2;float: right;padding-top: 3px;" tabindex="-1"></span>
+</span>
+	
 
 	
-<div align="center" id="exsem" name="exsem" >
- <button type = "button" class="btn btn-secondary btn-sm" onclick="window.location.reload();">Kembali</button>
- <button type = "button" class="btn btn-warning btn-sm" onclick="read_value()" value="Read">Check</button>
- <button type = "button" hidden class="btn btn-success btn-sm" onclick="insert_value()" value="Insert">Insert</button>
- <button type = "button" hidden class="btn btn-danger btn-sm" onclick="delete_value()" value="Delete">Delete</button>
-</div> 
+<div id="showData" ></div>
 
-<div class="container">
-
-<center><b><code id="re" ></code></b></center>
-<br>
+<div id="loader" class="loader">
+		<span id="spanload"></span>
+	</div>
 	
- <center>
-<b style="font-size:10px;color:black" >BBM<b style="font-size:30px;color:black" >INFRA<b style="font-size:30px;color:red">STRUKTUR</b></b></b>
-<hr width="100%" color="green"> 
-</center>
-
+	<!-- Btn memangil dari Javascript -->
+<button hidden type = "button" id='btncari' class="btn btn-link-sm" onclick="myCari()">
+<b style='font-size:13px;color:black' >&efr;&nfr;<b style='font-size:13px;color:red' >&Cfr;&afr;&kfr;</b></b>
+	</button>
+	
   
-
- 
-  <form role="form" id="excel" name="excel" class="was-validated">
-  
-  
-  <div class="row">
-    <div class="col">
-      <label id="tes" for="uname">1. Pilih Unit:</label>       
-	   <select class="form-control form-control-sm" id="id" name="id" placeholder="JenisUnit" required onchange='RNorma()'>	   
-	   <option style="display:none">
 		
-		<option>DT16
-		<option>DT23
-		<option>DT24
-		<option>DT25
-		<option>DT26
-		<option>DT28
-		<option>DT31
-		<option>DT37
-		<option>DT38
-		<option>DT39
-		<option>DT52
-		<option>DT53
-		<option>DT54
-		<option>TR01		
-		<option>TR02
-		<option>TCPO
-		<option>DT41
-		<option>DMK1
-		<option>JCB
-		<option>BW211D
-		<option>BW219D
-		<option>GD16
-		<option>GD535
-		<option>PC130
-		<option>PC200-10
-		<option>PC200-8
-		<option>PC45
-		<option>PC200-6
-		<option>GD13
-		<option>PC70
+		<div class="col">
+			&nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-primary btn-sm" id="SPV" value='+' /> 
+		</div>
+		<div class="col">
+			<input type='checkbox' id='toogle' />
+		</div>
+		
+
+
+		
+<br> <br> <br> <br> 
+	
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span><h1 id="btnenable" class="modal-title fs-5" onclick="enableform('excel');">FORM</h1>
+        </span>
+<h1 id="btndisable" class="modal-title fs-5" onclick="disableform('excel');" >&nbsp;BBM</h1>
+       
+        <span id="loader2"></span>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="myCari()"></button>
+      </div>
+      <div class="modal-body">
+  
+<!-- InfoText Saat Insert/Update/Delete/Read SUKSES -->    	
+ <code id="re"></code>       
         
+<form role="form" id="excel" name="excel" class="was-validated">
 
-		</select>
+
+	
+	<div class="row">	
+		<div class="col">
+			<label for="pwd">1. Nomor Id:</label> 
+				<input type="number" min="6000" max="10000" class="form-control form-control-sm" id="id" name="id" required /> 
+					<div class="valid-feedback"></div>
+						<div class="invalid-feedback">Isi form Ini.</div>
+		</div>
+
+
+		<div class="col">
+			<label id="tes" for="uname">2. Pilih Unit :</label>        
+				<select class="form-control form-control-sm" id="name" name="name" placeholder="JenisUnit" required onchange='RNorma()'>
+					<option style="display:none">
+						<option>DT16
+						<option>DT23
+						<option>DT24
+						<option>DT25
+						<option>DT26
+						<option>DT28
+						<option>DT31
+						<option>DT37
+						<option>DT38
+						<option>DT39
+						<option>DT52
+						<option>DT53
+						<option>DT54
+						<option>TR01
+						<option>TR02
+						<option>TCPO
+						<option>DT41
+						<option>DMK1
+						<option>JCB
+						<option>BW211D
+						<option>BW219D
+						<option>GD16
+						<option>GD535
+						<option>PC130
+						<option>PC200-10
+						<option>PC200-8
+						<option>PC45
+						<option>PC200-6
+						<option>GD13
+						<option>PC70
+				</select>
+					<div class="valid-feedback"></div>
+						<div class="invalid-feedback">Isi form Ini.</div>
+		</div>
+	
+			<div class="col">
+				<label for="uname">3. Tanggal:</label>
+					<span class="form-control form-control-sm" style="position: relative;display: inline-block;border: 1px solid #a9a9a9;height: 24px;width: 100%">
+    <input type="date" class="form-control form-control-sm" onchange="setCorrect(this,'a3');" style="position: absolute; opacity: 0.0;height: 100%;width: 100%;">
+<input type="text" id="a3" name="a3" style="border: none;height: 100%;width: 100%;" tabindex="-1">
+<span style="display: inline-block;width: 20px;z-index: 2;float: right;padding-top: 3px;" tabindex="-1">&#9660;</span>
+</span>
+						<div class="valid-feedback"></div>
+							<div class="invalid-feedback">Isi form Ini.</div>
+			</div>
+	</div>
+<p>
+	
+	<div class="row">
+		<div class="col">
+			<label for="uname">4. NamaKaryawan:</label>        
+				<select class="form-control form-control-sm" id="a4" name="a4" placeholder required ="NamaKaryawan">	   
+					<option style="display:none">
+						<option>Agus Wiyono	
+						<option>Ais SJ
+						<option>Agus Wiguna
+						<option>Heri F
+						<option>Slamet S
+						<option>Umar M
+						<option>Febri R
+						<option>Teguh S
+						<option>Prapto P
+						
+						<option>Imam Z
+						<option>Julian
+						<option>Mistono
+						<option>Nanang S
+						<option>Ratna
+						<option>Rudi S
+						<option>Suharno
+						<option>Tri W
+						<option>Tusianto
+						<option>Parman
+						<option>Toto D
+						
+
+						<option>Abas
+						<option>Witono
+						<option>Sofian A
+						<option value="Lain">Lainnya
+
+
+				</select>
+					<div class="valid-feedback"></div>
+						<div class="invalid-feedback">Isi form Ini.</div>
+		</div>
 		
+		<div class="col">
+			<label for="uname">5. Aktifitas:</label>        
+				<select class="form-control form-control-sm" id="a5" name="a5" placeholder required ="Aktifitas" onkeyup="manage(this)" >
+					<option style="display:none">
+						<option>OPR	
+						<option>TBS
+						<option>WMS
+						<option value="FAS">FASILITAS
+						<option value="RWT">RWT
+						<option value="PRO">PROJECT
+						
+						<option value="LAIN">LAINNYA
+				</select>
+					<div class="valid-feedback"></div>
+						<div class="invalid-feedback">Isi form Ini.</div>
+		</div>
+	</div>
 
-      <div class="valid-feedback"></div>
-      <div class="invalid-feedback">Mohon Isi form Ini.</div>
-    </div>
-	
-    <div class="col">
-      <label for="pwd">2. Tanggal:</label>
-      <input type="date" class="form-control form-control-sm" onchange="setCorrect(this,'name');" required placeholder="Tanggal"/>     
-      <div class="valid-feedback"></div>
-      <input type="text" hidden id="name" name="name"/>
-      <div class="invalid-feedback">Mohon Isi form Ini.</div>
-    </div>
-	
-	</div>
-	
+<p>
 	
 	<div class="row">
-    <div class="col">
-      <label for="uname">3. Nama:</label>        
-		<select class="form-control form-control-sm" id="a3" name="a3" required placeholder="Nama">	   
-	   <option style="display:none">
-    <option>Agus Wiguna
+		<div class="col">
+			<label for="uname">6. HM/KM Awal:</label>
+				<input type="number" maxlength="6" class="form-control form-control-sm" maxlength="4" id="a6" name="a6" placeholder="Awal" required onkeyup="RNorma();" />
+					<div class="valid-feedback"></div>
+						<div class="invalid-feedback">Isi form Ini.</div>
+		</div>
+		
+		<div class="col">
+				<label for="pwd">7. HM/KM Akhir:</label>
+					<input type="number" maxlength="6" class="form-control form-control-sm" id="a7" name="a7" placeholder="Akhir" required onkeyup="RNorma();" />
+						<div class="valid-feedback"></div>
+							<div class="invalid-feedback">Isi form Ini.</div>
+			</div>
 	
-	<option>Ais SJ
-    <option>Agus Wiguna
-	<option>Heri Fonda
-	<option>Slamet S
-	<option>Umar M
-	<option>Febri R
-	<option>Teguh S
-	<option>Prapto P
-    <option>Agus Wiyono
-	<option>Imam Z
-	<option>Julian
-	<option>Mistono
-	<option>Nanang S
-	<option>Ratna A
-	<option>Rudi S
-	<option>Suharno
-	<option>Tri W
-	<option>Tusianto
-	<option>Parman
-	<option>Toto
-   <option>Lainnya
 
-   </select>
-      <div class="valid-feedback"></div>
-      <div class="invalid-feedback">Mohon Isi form Ini.</div>
-    </div>
-	
-    <div class="col">
-      <label for="pwd">4. Aktifitas:</label>
-      <select class="form-control form-control-sm" id="a4" name="a4" required placeholder="Aktifitas" onkeyup="manage(this)" >
-    <option style="display:none">
-      <option>OPR
-      <option>TBS
-      <option>WMS
-      <option>Rawat              
-      <option>Lainnya        
-      </select>
-	  
-      <div class="valid-feedback"></div>
-      <div class="invalid-feedback">Mohon Isi form Ini.</div>
-    </div>
-	
+			<div class="col">
+				<label for="pwd">8. Total HM/KM:</label>
+					<input type="number" readonly class="form-control form-control-sm" id="a8" name="a8" placeholder="Total" required onchange='RNorma()' />
+						<div class="valid-feedback"></div>
+							<div class="invalid-feedback">Isi form Ini.</div>
+			</div>
 	</div>
-	
-	
+
+<p>
 	<div class="row">
-    <div class="col">
-      <label for="uname">5. HM/KM Awal:</label>
-       <input type="number" maxlength="6" class="form-control form-control-sm" maxlength="4" id="a5" name="a5" placeholder="Awal" required onkeyup="RNorma();" />
-      <div class="valid-feedback"></div>
-      <div class="invalid-feedback">Mohon Isi form Ini.</div>
-    </div>
-	
-    <div class="col">
-      <label for="pwd">6. HM/KM Akhir:</label>
-      <input type="number" maxlength="6" class="form-control form-control-sm" id="a6" name="a6" placeholder="Akhir" required onkeyup="RNorma();" />
-      <div class="valid-feedback"></div>
-      <div class="invalid-feedback">Mohon Isi form Ini.</div>
-    </div>
-	
-	<div class="col">
-      <label for="pwd">7. Total HM/KM:</label>
-      <input type="number"readonly class="form-control form-control-sm" id="a7" name="a7" placeholder="Total" required onchange='RNorma()' />
-      <div class="valid-feedback"></div>
-      <div class="invalid-feedback">Mohon Isi form Ini.</div>
-    </div>
-	
+			<div class="col">
+				<label for="uname">9. Norma:</label>
+					<input type="text" readonly class="form-control form-control-sm" id="a9" name="a9" placeholder="Norma"  />
+						<div class="valid-feedback"></div>
+							<div class="invalid-feedback">Isi form Ini.</div>
+			</div>
+			
+			<div class="col">
+				<label for="uname">10. Qty:</label>
+					<input type="number" readonly class="form-control form-control-sm" style="background-color:yellow;color:black;" id="a10" name="a10" placeholder="Qty" />
+						<div class="valid-feedback"></div>
+							<div class="invalid-feedback">Isi form Ini.</div>
+			</div>
+			
+			<div class="col">
+				<label for="uname">11. Center:</label>
+					<input type="text" readonly class="form-control form-control-sm" id="a11" name="a11" placeholder="Center"  />
+						<div class="valid-feedback"></div>
+							<div class="invalid-feedback">Isi form Ini.</div>
+			</div>
 	</div>
-	
+
+<br>
 	<div class="row">
-    <div class="col">
-      <label for="uname">8. Norma:</label>
-       <input type="text" readonly class="form-control form-control-sm" id="a8" name="a8" placeholder="Norma"  />
-      <div class="valid-feedback"></div>
-      <div class="invalid-feedback">Mohon Isi form Ini.</div>
-    </div>
-	
-    <div class="col">
-      <label for="pwd">9. Qty:</label>
-      <input type="number"  readonly class="form-control form-control-sm" style="background-color:yellow;color:black;" id="a9" name="a9" placeholder="Qty" />
-      <div class="valid-feedback"></div>
-      <div class="invalid-feedback">Mohon Isi form Ini.</div>
-    </div>
-	
-	<div class="col">
-      <label for="pwd">10. Center:</label>
-      <input type="text" readonly class="form-control form-control-sm" id="a10" name="a10" placeholder="Center"  />
-      <div class="valid-feedback"></div>
-      <div class="invalid-feedback">Mohon Isi form Ini.</div>
-    </div>	
+			<div class="col">
+				<label for="uname">12. Keterangan:</label>
+					<input type="text" class="form-control form-control-sm" id="a12" name="a12" placeholder="Keterangan" />
+						<div class="valid-feedback"></div>
+							<div class="invalid-feedback">Isi form Ini.</div>
+			</div>
 	</div>
 	
-	<input hidden readonly  id="a11" name="a11" />
-      <input hidden readonly  id="a12" name="a12" />
-      <input hidden readonly  id="a13" name="a13" />
-      <input hidden readonly  id="a14" name="a14" />
-      
 	
-	
-	
-	<div hidden class="col">
-      <label for="pwd">11. BPB:</label>
-      <input type="text" maxlength="25" class="form-control form-control-sm" id="a15" name="a15" placeholder="No BPB"  />
-      <div class="valid-feedback"></div>
-      <div class="invalid-feedback">Mohon Isi form Ini.</div>
-    </div>
-	
-	<br>
-	
-	<div class="d-flex justify-content-center">
-    <div class="form-group form-check">
-      <label class="form-check-label">
-        <input class="form-check-input" type="checkbox" name="remember" required> <br><br> 
-        <div class="valid-feedback"><button type="button" class="btn btn-primary btn-sm" onclick="update_value()" value="Update" >Update</button></div>
-        <div class="invalid-feedback">12. Klik Centang Untuk Melanjutkan.</div>
-      </label>
-    </div>
+
+	<div hidden class="row">
+			<input  id="a13" name="a13" />
+			<input  id="a14" name="a14" />
+			<input  id="a15" name="a15" />
+	</div>
 
   </form>
+    
+    <!-- Button di dalam Modal -->
+  </div>
+      <div id="buttonshow" class="modal-footer">
+        <button hidden type = "button" class="btn btn-secondary btn-sm" onclick="window.location.reload();">Kembali</button>&nbsp;
+        <button type = "button" class ="btn btn-danger btn-sm" onclick="delete_value()" value="Delete">Delete</button> &nbsp;&nbsp;
+		<button type = "button" class ="btn btn-primary btn-sm" onclick="update_value()" value="Update" >Update</button>&nbsp;&nbsp;
+		<button type = "button" class = "btn btn-success btn-sm" onclick="insert_value()" value="Insert">Insert</button>&nbsp;&nbsp;
+		
+      </div>
+    </div>
+  </div>
 </div>
 
+	
 
-<table align="center" cellspacing="50" class="sticky-column"  id="showData"></table>
-<div class="d-flex justify-content-center">
-  <div id="loader"></div>
+
+
+	
+	<!-- Button di dalam FUB -->
+<div id="tempatFUB">
+<div  id="mega-button" >
+  <a class='sub-button' data-bs-toggle='modal' data-bs-target='#exampleModal' onclick="enableform('excel');" >&#10010;</a>
+  <a class="sub-button" id="" onclick="read_value()">&#128119;</a>
+  <a style='font-size:27px' class="sub-button" id="" onclick="tableToExcel('showData', 'BBM Opersional 2023')">&#11015;</a>
 </div>
-
-<br><br><br><br><br><br><br>
+</div>
 
   
+  <!-- Footer -->
+<div class="footer" align="center" id="exsem" name="exsem" >
+<div class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+    	PT.Sari Aditya Loka
+    </div>
+    <div class="carousel-item">   
+      Teknik SAL1
+    </div>
+    <div class="carousel-item">
+      INFRASTRUKTUR 
+    </div>
+  </div>
+</div>
+  </div> 
 </body>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
 <script>
-  
-  var script_url = "https://script.google.com/macros/s/AKfycbzhCTHB_-lWqk3-ENV_ySgv2nwrvQF7qvUfNP-F-wPozmWylKEj/exec";
+var script_url = "https://script.google.com/macros/s/AKfycbyzdQMIRXm56qR3ZwD1M4fzdd4xCYQaaSst1DFnY4dhwToEnIrSY6J7EKNWGZaIoBLoww/exec";
   
   
   // Make an AJAX call to Google Script
   function insert_value() {
     
 	$("#re").css("visibility","hidden");
-	 document.getElementById("loader").style.visibility = "visible";
+	 document.getElementById("loader2").style.visibility = "visible";
 	$('#mySpinner').addClass('spinner');
 
 	var id1= $("#id").val();
@@ -380,8 +786,10 @@ label {
   
   function update_value(){
 	$("#re").css("visibility","hidden");
-	 document.getElementById("loader").style.visibility = "visible";
+	 document.getElementById("loader2").style.visibility = "visible";
 	$('#mySpinner').addClass('spinner');
+	document.getElementById("btndisable").click();
+	
 
 	
 	
@@ -419,8 +827,9 @@ label {
   
   function delete_value(){
 	$("#re").css("visibility","hidden");
-     document.getElementById("loader").style.visibility = "visible";
+     document.getElementById("loader2").style.visibility = "visible";
 	$('#mySpinner').addClass('spinner');
+	document.getElementById("btndisable").click();
 	
 	var id1= $("#id").val();
 	var name= $("#name").val();
@@ -455,24 +864,29 @@ label {
   
   // print the returned data
   function ctrlq(e) {
-  
 	
 	$("#re").html(e.result);
 	$("#re").css("visibility","visible");
 	read_value();
+	document.getElementById("excel").reset();
+	
 
   }
   
   function read_value() {
   
+  // Sembunyikan Div
   var x = document.getElementById("excel");
   if (x.style.display === "none") {
     x.style.display = "none";
   } else {
-    x.style.display = "none";
+    x.style.display = "block";
   }
 
 $("#re").css("visibility","hidden");
+$("#caritanggal").css("visibility","visible");
+$("#tampilkanInput").css("visibility","hidden");
+$("#tempatFUB").css("visibility","hidden");
    
    document.getElementById("loader").style.visibility = "visible";
  var url = script_url+"?action=read";
@@ -486,8 +900,9 @@ $.getJSON(url, function (json) {
 
         // CREATE DYNAMIC TABLE.
         var table = document.createElement("table");
-
-  
+        table.createCaption().innerHTML="";
+        
+        // Caption untuk Header
 
         var header = table.createTHead();
   var row = header.insertRow(0);     
@@ -509,23 +924,27 @@ $.getJSON(url, function (json) {
   var cell16 = row.insertCell(15);
   
   
+  
+  
    
-  cell1.innerHTML = "<b>UNIT</b>";
-  cell2.innerHTML = "<b>Tanggal</b>";
-  cell3.innerHTML = "<b>NamaKaryawan</b>";
-  cell4.innerHTML = "<b>Aktifitas</b>";
-  cell5.innerHTML = "<b>Awal</b>";
-  cell6.innerHTML = "<b>Akhir</b>";
-  cell7.innerHTML = "<b>KM</b>";
-  cell8.innerHTML = "<b>Norma</b>";
-  cell9.innerHTML = "<b>Qty</b>";
-  cell10.innerHTML = "<b>CostCenter</b>";
-  cell11.innerHTML = "<b>tes11</b>";
-  cell12.innerHTML = "<b>tes12</b>";
-  cell13.innerHTML = "<b>tes13</b>";
-  cell14.innerHTML = "<b>tes14</b>";
-  cell15.innerHTML = "<b>KET</b>";
-  cell16.innerHTML = "<b>song</b>";
+  cell1.outerHTML = "<th>No</th>";
+  cell2.outerHTML = "<th>#UnitOPR</th>";
+  cell3.outerHTML = "<th>Date</th>";
+  cell4.outerHTML = "<th>NamaKaryawan</th>";
+  cell5.outerHTML = "<th>Act</th>";
+  cell6.outerHTML = "<th>Awal</th>";
+  cell7.outerHTML = "<th>Akhir</th>";
+  cell8.outerHTML = "<th>Km</th>";
+  cell9.outerHTML = "<th>Norma</th>";
+  cell10.outerHTML = "<th>Qty</th>";
+  cell11.outerHTML = "<th>CostCenter</th>";
+  cell12.outerHTML = "<th>Ket</th>";
+  cell13.outerHTML = "<th>tes13</th>";
+  cell14.outerHTML = "<th>tes14</th>";
+  cell15.outerHTML = "<th>tes15</th>";
+  cell16.outerHTML = "<th><b class='flip_H' style='font-size:14px;color:white'>&#9951;</b></th>";
+  
+
 
 
   
@@ -536,7 +955,10 @@ $.getJSON(url, function (json) {
   
             tr = table.insertRow(-1);
     var tabCell = tr.insertCell(-1);
-                tabCell.innerHTML = json.records[i].ID;
+
+    tabCell.innerHTML = '<span id=okeyy data-bs-toggle=' + 'modal1' +' data-bs-target=' + '#exampleModal1' + '>' + json.records[i].ID;
+    tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].Unit;
     tabCell = tr.insertCell(-1);
     tabCell.innerHTML = json.records[i].Tanggal;
     tabCell = tr.insertCell(-1);
@@ -556,91 +978,171 @@ $.getJSON(url, function (json) {
     tabCell = tr.insertCell(-1);
     tabCell.innerHTML = json.records[i].CostCenter;
 	tabCell = tr.insertCell(-1);
-    tabCell.innerHTML = json.records[i].tes11;    
+    tabCell.innerHTML = json.records[i].Keterangan;
+	tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].tes13;
+	tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].tes14;
+	tabCell = tr.insertCell(-1);
+    tabCell.innerHTML = json.records[i].tes15;
+    
     tabCell = tr.insertCell(-1);
-    tabCell.innerHTML = json.records[i].tes12;    
-    tabCell = tr.insertCell(-1);
-    tabCell.innerHTML = json.records[i].tes13;    
-    tabCell = tr.insertCell(-1);
-    tabCell.innerHTML = json.records[i].tes14;    
-    tabCell = tr.insertCell(-1);
-    tabCell.innerHTML = json.records[i].Keterangan;    
+    tabCell.innerHTML = "<td>ubah</td>";
+    
 
-    
-    
-    
+document.getElementById('id').value = Math.round(json.records[i].ID)+1;
+// Insert No Id kedalam Input
     
             }
-      
+            
+    
 
         // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
-        var divContainer = document.getElementById("showData");
-        divContainer.innerHTML = "";
-        divContainer.appendChild(table);
+        var tableku = document.getElementById("showData");
+        tableku.innerHTML = "<center><b class='flip_H' style='font-size:20px;color:black'>&#9951;</b><b style='font-size:30px;color:red' >INFRA<b style='font-size:30px;color:black' >STRUKTUR</b></b>";
+        tableku.appendChild(table);
   document.getElementById("loader").style.visibility = "hidden";
-  $("#re").css("visibility","visible");
-    });
- }
+  document.getElementById("loader2").style.visibility = "hidden";
   
- 
+  $("#re").css("visibility","visible");
+  $("#tampilkanInput").css("visibility","visible");
+  $("#tempatFUB").css("visibility","visible");
+  
+  
+  // Kode Ini untuk Memasukkan ke form input ketika button edit di klik
+   $('td:contains("ubah")').html("<button type='button' id='tombolEdit' class = 'btn btn-default btn-sm' data-bs-toggle='modal' data-bs-target='#exampleModal'>" + "&#9981;" + "</button>").on('click', function() {
+  
+    let cells = $(this).parents('tr').find('td');
+    $("#id").val($(cells[0]).text());
+    $("#name").val($(cells[1]).text());
+    $("#a3").val($(cells[2]).text());   
+    $("#a4").val($(cells[3]).text());
+    $("#a5").val($(cells[4]).text());
+    $("#a6").val($(cells[5]).text());
+    $("#a7").val($(cells[6]).text());
+    $("#a8").val($(cells[7]).text());
+    $("#a9").val($(cells[8]).text());
+    $("#a10").val($(cells[9]).text());
+    $("#a11").val($(cells[10]).text());
+    $("#a12").val($(cells[11]).text());
+    $("#xTime").val($(cells[2]).text());
+    
+    current_row = $(this).parents('tr').data('row');
+    document.getElementById("btndisable").click();
+   
+});
+
+// Memasukkan Json Tanggal ketika Read Setelah Loader 
+for (var i = 0; i < json.records.length; i++) { 
+     	document.getElementById('caritanggal').value = json.records[i].Tanggal;
+document.getElementById("btncari").click();
+
+}
+  
+  // untuk Mengubah Warna 
+  $(document).ready(function(){
+  $("td:contains(Lainnya)").html("LAIN");  
+  $("td:contains(TBS)").css("background-color", "#47E3FF");
+  $("td:contains(WMS)").css("background-color", "Yellow");
+ // untuk Mengubah  $("td:contains(Excavator)").html("<img src='exa.png' width='17px'>");  
+  // untuk Mengubah $("td:contains(Bechoe)").html("<img src='bechoe.png' width='17px'>");  
+  // untuk Mengubah $("td:contains(Bomag)").html("<img src='bomag.png' width='17px'>");  
+  // untuk Mengubah $("td:contains(Greader)").html("<img src='greader.png' width='17px'>");  
+  
+  // untuk Mengubah $("td:contains(iconDT)").html("<b style='font-size:11px;color:DodgerBlue'>&#9951;<b/>");  
+  
+  
+});
+
+
+    });
+    
+ }
+
+
+  // Fungsi untuk Filter Tanggal
+ function myCari(e) {
+  var input, filter, table, tr, td, i, txtValue;
+  
+  input = document.getElementById("caritanggal");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("showData");
+  tr = table.getElementsByTagName("tr");
+  for (i = 1; i < tr.length; i++) {
+    //for each row check both columns
+    for (j =1; j < 3; j++){
+       td = tr[i].getElementsByTagName("td")[j];
+       if (td) {
+         txtValue = td.textContent || td.innerText;
+         if (txtValue.toUpperCase().indexOf(filter) > -1) {
+           tr[i].style.display = "";
+         } else {
+           tr[i].style.display = "none";
+         }
+       }  
+    }
+  }
+}
+
+
   </script>
 
  <script>
+ 	// Fungsi Untuk Form Input
 function RNorma(){ 
 
-var b = document.forms['excel']['id'].value;
-var c = document.forms['excel']['id'].value;
-var d = document.getElementById('a5').value;
-var e = document.getElementById('a6').value;
-var f = document.getElementById('a8').value;
+var b = document.forms['excel']['name'].value;
+var c = document.forms['excel']['name'].value;
+var d = document.getElementById('a6').value;
+var e = document.getElementById('a7').value;
+var f = document.getElementById('a9').value;
 
       var result = parseFloat(e) - parseFloat(d);
       var bbmDT = Math.round(parseFloat(result) / parseFloat(f));
 	  var bbmAB = Math.round(parseFloat(result) * parseFloat(f));
       if (!isNaN(result)) {
-         document.getElementById('a7').value = result;
+         document.getElementById('a8').value = result;
 		 
          
 		 
 }
 
-if(b=="BPB") {document.forms['excel']['a8'].value= "3.45 ";document.forms['excel']['a10'].value= "5G0100--";document.getElementById('a9').value = bbmDT;document.getElementById('a15').value = "=Q2"} 
-if(b=="DT16") {document.forms['excel']['a8'].value= "3.45 ";document.forms['excel']['a10'].value= "5G010016";document.getElementById('a9').value = bbmDT;document.getElementById('a15').value = "=Q3"} 
-if(b=="DT23") {document.forms['excel']['a8'].value= "3.03 ";document.forms['excel']['a10'].value= "5G010023";document.getElementById('a9').value = bbmDT;document.getElementById('a15').value = "=Q4"} 
-if(b=="DT24") {document.forms['excel']['a8'].value= "3.45 ";document.forms['excel']['a10'].value= "5G010024";document.getElementById('a9').value = bbmDT;document.getElementById('a15').value = "=Q5"} 
-if(b=="DT25") {document.forms['excel']['a8'].value= "3.33 ";document.forms['excel']['a10'].value= "5G010025";document.getElementById('a9').value = bbmDT;document.getElementById('a15').value = "=Q6"} 
-if(b=="DT26") {document.forms['excel']['a8'].value= "3.57 ";document.forms['excel']['a10'].value= "5G010026";document.getElementById('a9').value = bbmDT;document.getElementById('a15').value = "=Q7"} 
-if(b=="DT28") {document.forms['excel']['a8'].value= "3.33 ";document.forms['excel']['a10'].value= "5G010028";document.getElementById('a9').value = bbmDT;document.getElementById('a15').value = "=Q8"} 
-if(b=="DT31") {document.forms['excel']['a8'].value= "3.70 ";document.forms['excel']['a10'].value= "5G010033";document.getElementById('a9').value = bbmDT;document.getElementById('a15').value = "=Q9"} 
-if(b=="DT37") {document.forms['excel']['a8'].value= "3.33 ";document.forms['excel']['a10'].value= "5G010037";document.getElementById('a9').value = bbmDT;document.getElementById('a15').value = "=Q10"} 
-if(b=="DT38") {document.forms['excel']['a8'].value= "3.13 ";document.forms['excel']['a10'].value= "5G010047";document.getElementById('a9').value = bbmDT;document.getElementById('a15').value = "=Q11"} 
-if(b=="DT39") {document.forms['excel']['a8'].value= "3.33 ";document.forms['excel']['a10'].value= "5G010048";document.getElementById('a9').value = bbmDT;document.getElementById('a15').value = "=Q12"} 
-if(b=="DT52") {document.forms['excel']['a8'].value= "3.57 ";document.forms['excel']['a10'].value= "5G010061";document.getElementById('a9').value = bbmDT;document.getElementById('a15').value = "=Q13"} 
-if(b=="DT53") {document.forms['excel']['a8'].value= "3.45 ";document.forms['excel']['a10'].value= "5G010062";document.getElementById('a9').value = bbmDT;document.getElementById('a15').value = "=Q14"} 
-if(b=="DT54") {document.forms['excel']['a8'].value= "3.23 ";document.forms['excel']['a10'].value= "5G010063";document.getElementById('a9').value = bbmDT;document.getElementById('a15').value = "=Q15"} 
-if(b=="TR01") {document.forms['excel']['a8'].value= "1.20 ";document.forms['excel']['a10'].value= "4G000001";document.getElementById('a9').value = bbmDT;document.getElementById('a15').value = "=Q16"} 
-if(b=="TCPO") {document.forms['excel']['a8'].value= "1.40 ";document.forms['excel']['a10'].value= "5G020002";document.getElementById('a9').value = bbmDT;document.getElementById('a15').value = "=Q17"} 
-if(b=="TR02") {document.forms['excel']['a8'].value= "1.40 ";document.forms['excel']['a10'].value= "5G010065";document.getElementById('a9').value = bbmDT;document.getElementById('a15').value = "=Q18"} 
-if(b=="DT41") {document.forms['excel']['a8'].value= "3.20 ";document.forms['excel']['a10'].value= "5G010049";document.getElementById('a9').value = bbmDT;document.getElementById('a15').value = "=Q19"} 
-if(b=="DMK1") {document.forms['excel']['a8'].value= "2.63 ";document.forms['excel']['a10'].value= "5M000001";document.getElementById('a9').value = bbmDT;document.getElementById('a15').value = "=Q20"} 
-if(b=="JCB") {document.forms['excel']['a8'].value= "8.10 ";document.forms['excel']['a10'].value= "4E 000004";document.getElementById('a9').value = bbmAB;document.getElementById('a15').value = "=Q23"} 
-if(b=="BW211D") {document.forms['excel']['a8'].value= "11.00 ";document.forms['excel']['a10'].value= "4C010008";document.getElementById('a9').value = bbmAB;document.getElementById('a15').value = "=Q24"} 
-if(b=="BW219D") {document.forms['excel']['a8'].value= "14.00 ";document.forms['excel']['a10'].value= "4C010007";document.getElementById('a9').value = bbmAB;document.getElementById('a15').value = "=Q25"} 
-if(b=="GD16") {document.forms['excel']['a8'].value= "11.30 ";document.forms['excel']['a10'].value= "4B010006";document.getElementById('a9').value = bbmAB;document.getElementById('a15').value = "=Q26"} 
-if(b=="GD535") {document.forms['excel']['a8'].value= "12.00 ";document.forms['excel']['a10'].value= "4B010010";document.getElementById('a9').value = bbmAB;document.getElementById('a15').value = "=Q27"} 
-if(b=="PC130") {document.forms['excel']['a8'].value= "9.90 ";document.forms['excel']['a10'].value= "4D010005";document.getElementById('a9').value = bbmAB;document.getElementById('a15').value = "=Q28"} 
-if(b=="PC200-10") {document.forms['excel']['a8'].value= "13.50 ";document.forms['excel']['a10'].value= "4D010006";document.getElementById('a9').value = bbmAB;document.getElementById('a15').value = "=Q29"} 
-if(b=="PC200-8") {document.forms['excel']['a8'].value= "16.10 ";document.forms['excel']['a10'].value= "4D010004";document.getElementById('a9').value = bbmAB;document.getElementById('a15').value = "=Q30"} 
-if(b=="PC45") {document.forms['excel']['a8'].value= "6.00 ";document.forms['excel']['a10'].value= "4D010003";document.getElementById('a9').value = bbmAB;document.getElementById('a15').value = "=Q31"} 
-if(b=="PC200-6") {document.forms['excel']['a8'].value= "16.10 ";document.forms['excel']['a10'].value= "4D010001";document.getElementById('a9').value = bbmAB;document.getElementById('a15').value = "=Q32"} 
-if(b=="GD13") {document.forms['excel']['a8'].value= "10.00 ";document.forms['excel']['a10'].value= "4B010009";document.getElementById('a9').value = bbmAB;document.getElementById('a15').value = "=Q33"} 
-if(b=="PC70") {document.forms['excel']['a8'].value= "7.5 ";document.forms['excel']['a10'].value= "4D010007";document.getElementById('a9').value = bbmAB;document.getElementById('a15').value = "=Q34"} 
-if(b=="TES") {document.forms['excel']['a8'].value= "3.20 ";document.forms['excel']['a10'].value= "Tes Cost";document.getElementById('a9').value = bbmAB;document.getElementById('a15').value = "=Q35"} 
+if(b=="BPB") {document.forms['excel']['a9'].value= "3.45 ";document.forms['excel']['a11'].value= "5G0100--";document.getElementById('a10').value = bbmDT;document.getElementById('a12').value = "0"} 
+if(b=="DT16") {document.forms['excel']['a9'].value= "3.45 ";document.forms['excel']['a11'].value= "5G010016";document.getElementById('a10').value = bbmDT;document.getElementById('a12').value = ""} 
+if(b=="DT23") {document.forms['excel']['a9'].value= "3.03 ";document.forms['excel']['a11'].value= "5G010023";document.getElementById('a10').value = bbmDT;document.getElementById('a12').value = ""} 
+if(b=="DT24") {document.forms['excel']['a9'].value= "3.45 ";document.forms['excel']['a11'].value= "5G010024";document.getElementById('a10').value = bbmDT;document.getElementById('a12').value = ""} 
+if(b=="DT25") {document.forms['excel']['a9'].value= "3.33 ";document.forms['excel']['a11'].value= "5G010025";document.getElementById('a10').value = bbmDT;document.getElementById('a12').value = ""} 
+if(b=="DT26") {document.forms['excel']['a9'].value= "3.57 ";document.forms['excel']['a11'].value= "5G010026";document.getElementById('a10').value = bbmDT;document.getElementById('a12').value = ""} 
+if(b=="DT28") {document.forms['excel']['a9'].value= "3.33 ";document.forms['excel']['a11'].value= "5G010028";document.getElementById('a10').value = bbmDT;document.getElementById('a12').value = ""} 
+if(b=="DT31") {document.forms['excel']['a9'].value= "3.70 ";document.forms['excel']['a11'].value= "5G010033";document.getElementById('a10').value = bbmDT;document.getElementById('a12').value = ""} 
+if(b=="DT37") {document.forms['excel']['a9'].value= "3.33 ";document.forms['excel']['a11'].value= "5G010037";document.getElementById('a10').value = bbmDT;document.getElementById('a12').value = ""} 
+if(b=="DT38") {document.forms['excel']['a9'].value= "3.13 ";document.forms['excel']['a11'].value= "5G010047";document.getElementById('a10').value = bbmDT;document.getElementById('a12').value = ""} 
+if(b=="DT39") {document.forms['excel']['a9'].value= "3.33 ";document.forms['excel']['a11'].value= "5G010048";document.getElementById('a10').value = bbmDT;document.getElementById('a12').value = ""} 
+if(b=="DT52") {document.forms['excel']['a9'].value= "3.57 ";document.forms['excel']['a11'].value= "5G010061";document.getElementById('a10').value = bbmDT;document.getElementById('a12').value = ""} 
+if(b=="DT53") {document.forms['excel']['a9'].value= "3.45 ";document.forms['excel']['a11'].value= "5G010062";document.getElementById('a10').value = bbmDT;document.getElementById('a12').value = ""} 
+if(b=="DT54") {document.forms['excel']['a9'].value= "3.23 ";document.forms['excel']['a11'].value= "5G010063";document.getElementById('a10').value = bbmDT;document.getElementById('a12').value = ""} 
+if(b=="TR01") {document.forms['excel']['a9'].value= "1.20 ";document.forms['excel']['a11'].value= "4G000001";document.getElementById('a10').value = bbmDT;document.getElementById('a12').value = ""} 
+if(b=="TCPO") {document.forms['excel']['a9'].value= "1.40 ";document.forms['excel']['a11'].value= "5G020002";document.getElementById('a10').value = bbmDT;document.getElementById('a12').value = ""} 
+if(b=="TR02") {document.forms['excel']['a9'].value= "1.40 ";document.forms['excel']['a11'].value= "5G010065";document.getElementById('a10').value = bbmDT;document.getElementById('a12').value = ""} 
+if(b=="DT41") {document.forms['excel']['a9'].value= "3.20 ";document.forms['excel']['a11'].value= "5G010049";document.getElementById('a10').value = bbmDT;document.getElementById('a12').value = ""} 
+if(b=="DMK1") {document.forms['excel']['a9'].value= "2.63 ";document.forms['excel']['a11'].value= "5M000001";document.getElementById('a10').value = bbmDT;document.getElementById('a12').value = ""} 
+if(b=="JCB") {document.forms['excel']['a9'].value= "8.10 ";document.forms['excel']['a11'].value= "4E 000004";document.getElementById('a10').value = bbmAB;document.getElementById('a12').value = ""}  
+if(b=="BW211D") {document.forms['excel']['a9'].value= "11.00 ";document.forms['excel']['a11'].value= "4C010008";document.getElementById('a10').value = bbmAB;document.getElementById('a12').value = ""} 
+if(b=="BW219D") {document.forms['excel']['a9'].value= "14.00 ";document.forms['excel']['a11'].value= "4C010007";document.getElementById('a10').value = bbmAB;document.getElementById('a12').value = ""} 
+if(b=="GD16") {document.forms['excel']['a9'].value= "11.30 ";document.forms['excel']['a11'].value= "4B010006";document.getElementById('a10').value = bbmAB;document.getElementById('a12').value = ""} 
+if(b=="GD535") {document.forms['excel']['a9'].value= "12.00 ";document.forms['excel']['a11'].value= "4B010010";document.getElementById('a10').value = bbmAB;document.getElementById('a12').value = ""} 
+if(b=="PC130") {document.forms['excel']['a9'].value= "9.90 ";document.forms['excel']['a11'].value= "4D010005";document.getElementById('a10').value = bbmAB;document.getElementById('a12').value = ""} 
+if(b=="PC200-10") {document.forms['excel']['a9'].value= "13.50 ";document.forms['excel']['a11'].value= "4D010006";document.getElementById('a10').value = bbmAB;document.getElementById('a12').value = ""} 
+if(b=="PC200-8") {document.forms['excel']['a9'].value= "16.10 ";document.forms['excel']['a11'].value= "4D010004";document.getElementById('a10').value = bbmAB;document.getElementById('a12').value = ""} 
+if(b=="PC45") {document.forms['excel']['a9'].value= "6.00 ";document.forms['excel']['a11'].value= "4D010003";document.getElementById('a10').value = bbmAB;document.getElementById('a12').value = ""} 
+if(b=="PC200-6") {document.forms['excel']['a9'].value= "16.10 ";document.forms['excel']['a11'].value= "4D010001";document.getElementById('a10').value = bbmAB;document.getElementById('a12').value = ""} 
+if(b=="GD13") {document.forms['excel']['a9'].value= "10.00 ";document.forms['excel']['a11'].value= "4B010009";document.getElementById('a10').value = bbmAB;document.getElementById('a12').value = ""} 
+if(b=="PC70") {document.forms['excel']['a9'].value= "7.5 ";document.forms['excel']['a11'].value= "4D010007";document.getElementById('a10').value = bbmAB;document.getElementById('a12').value = ""} 
+if(b=="TES") {document.forms['excel']['a9'].value= "3.20 ";document.forms['excel']['a11'].value= "Tes Cost";document.getElementById('a10').value = bbmAB;document.getElementById('a12').value = ""} 
 
   
-  
   else {
-    document.getElementById("tes").innerHTML="<font color='black'><b>1. Pilih Unit</b></font>";
+    document.getElementById("tes").innerHTML="<font color='black'><b>2. Pilih Unit</b></font>";
   }
  } 
 
@@ -649,21 +1151,33 @@ if(b=="TES") {document.forms['excel']['a8'].value= "3.20 ";document.forms['excel
 
 
 
-<script>
-function sembunyi() {
-  var x = document.getElementById("exsem");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
+<script type="text/javascript">
+// Lupa Fungsinya
+
+ $(function () {
+   $( "#id" ).change(function() {
+      var max = parseInt($(this).attr('max'));
+      var min = parseInt($(this).attr('min'));
+      if ($(this).val() > max)
+      {
+          $(this).val("Salah");
+      }
+      else if ($(this).val() < min)
+      {
+          $(this).val('Salah');
+      }       
+    }); 
+});
+
 </script>
 
+
 <script language="javascript">
+	
+	// Mengubah Format Date ke String 
 var matchEnterdDate=0;
-//function to set back date opacity for non supported browsers
-    window.onload =function(){
+//function error jika Onload
+    object.onload =function(){
         var input = document.createElement('input');
         input.setAttribute('type','date');
         input.setAttribute('value', 'some text'); 
@@ -675,13 +1189,14 @@ var matchEnterdDate=0;
             } 
         }
     }
-//function to convert enterd date to any format
+
 
 function setCorrect(xObj,xTraget){
+	//function to convert enterd date to any format
 	
     var date = new Date(xObj.value);
     var month = date.toLocaleString('default', { month: 'short' });
-    var day = date.getDate();
+    var day = String(date.getDate()).padStart(2, '0');
     var year = date.getFullYear();
     if(month!='NaN'){
         document.getElementById(xTraget).value=day+" "+month+" \xa0\xa0\xa0";
@@ -690,4 +1205,114 @@ function setCorrect(xObj,xTraget){
     }
 }
    </script>
+   
+   
+
+
+<script language="javascript">
+	// Fungsi Untuk Hiden Button ketika form input belum di isi
+$(document).ready(function() {
+    $('#buttonshow').hide();
+    $('input').change(function(e) {
+        if ($('#id').val() && $('#name').val() && $('#a3').val() && $('#a4').val() ) {
+            $('#buttonshow').show();
+        }
+    });
+});
+
+
+</script>
+
+
+<script>
+// Fungsi Download merubah data table ke Excel 
+
+var tableToExcel = (function() {
+  var uri = 'data:application/vnd.ms-excel;base64,'
+    , template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>{table}</table></body></html>'
+    , base64 = function(s) { return window.btoa(unescape(encodeURIComponent(s))) }
+    , format = function(s, c) { return s.replace(/{(\w+)}/g, function(m, p) { return c[p]; }) }
+  return function(table, name) {
+    if (!table.nodeType) table = document.getElementById(table)
+    var ctx = {worksheet: name || 'Worksheet', table: table.innerHTML}
+    window.location.href = uri + base64(format(template, ctx))
+  }
+})()
+
+</script>
+
+<script type="text/javascript">
+  function disableform(excel) {
+     var f = document.forms[excel].getElementsByTagName('input');
+     for (var i=0;i<f.length;i++)
+         f[i].disabled=true
+     var f = document.forms[excel].getElementsByTagName('select');
+     for (var i=0;i<f.length;i++)
+         f[i].disabled=true
+  }
+
+    function enableform(excel) {
+       var f = document.forms[excel].getElementsByTagName('input');
+       for (var i=0;i<f.length;i++)
+           f[i].disabled=false
+       var f = document.forms[excel].getElementsByTagName('select');
+       for (var i=0;i<f.length;i++)
+           f[i].disabled=false
+    }
+    
+</script>
+
+<script type="text/javascript">
+$(function() {
+  
+    $("#toogle").click(function() {        
+        toggleColumns(16, $(this).is(":checked"));      
+        toggleDate(3, $(this).is(":checked"));      
+        toggleAct(5, $(this).is(":checked")); 
+     
+    })
+
+    function toggleColumns(column, state) {
+        var cells = $("table").find("th, td").filter(":nth-child(" + column + ")");        
+        if (state)
+            cells.show();
+        else
+            cells.hide();
+    }
+    
+    function toggleDate(column, state) {
+        var cells = $("table").find("th, td").filter(":nth-child(" + column + ")");        
+        if (state)
+            cells.hide();
+        else
+            cells.hide();
+    }
+    
+    function toggleAct(column, state) {
+        var cells = $("table").find("th, td").filter(":nth-child(" + column + ")");        
+        if (state)
+            cells.hide();
+        else
+            cells.show();
+    }
+      
+})    
+    
+
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#toogle").hide();
+    $("#SPV").click(function(){
+    	$("#toogle").toggle();
+        
+
+    if (this.value=="+") this.value = "-";
+    else this.value = "+";
+
+  });
+});
+</script>
+
 </html>
